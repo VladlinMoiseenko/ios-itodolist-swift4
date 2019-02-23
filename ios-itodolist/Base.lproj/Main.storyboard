@@ -52,12 +52,19 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wfJ-h4-Mng">
                                 <rect key="frame" x="177.5" y="256" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igk-FV-9jv">
+                                <rect key="frame" x="164.5" y="291" width="46" height="85"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Mbb-Bs-1tE" firstAttribute="top" secondItem="SdD-ll-Q8U" secondAttribute="bottom" constant="50" id="2z3-7N-sy9"/>
                             <constraint firstItem="wfJ-h4-Mng" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IZ3-lb-aoY"/>
+                            <constraint firstItem="Igk-FV-9jv" firstAttribute="top" secondItem="wfJ-h4-Mng" secondAttribute="bottom" constant="15" id="JoR-Ez-Mr1"/>
                             <constraint firstItem="USI-NJ-xR7" firstAttribute="centerX" secondItem="CsR-Jg-JDE" secondAttribute="centerX" id="OLt-CO-AMn"/>
+                            <constraint firstItem="Igk-FV-9jv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RZ3-v8-fxq"/>
+                            <constraint firstItem="Igk-FV-9jv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RvG-vT-viF"/>
                             <constraint firstItem="Mbb-Bs-1tE" firstAttribute="top" secondItem="SdD-ll-Q8U" secondAttribute="bottom" constant="50" id="SxF-0f-SiK"/>
                             <constraint firstItem="SdD-ll-Q8U" firstAttribute="centerX" secondItem="CsR-Jg-JDE" secondAttribute="centerX" id="UI3-d6-mJr"/>
                             <constraint firstItem="wfJ-h4-Mng" firstAttribute="top" secondItem="Mbb-Bs-1tE" secondAttribute="bottom" constant="8" id="cY4-NR-q7v"/>
@@ -72,7 +79,8 @@
                         <outlet property="_login_button" destination="Mbb-Bs-1tE" id="QWM-yx-RHH"/>
                         <outlet property="_password" destination="SdD-ll-Q8U" id="gua-vB-o47"/>
                         <outlet property="_username" destination="USI-NJ-xR7" id="rd9-T8-xhl"/>
-                        <outlet property="indicatorView" destination="wfJ-h4-Mng" id="i8R-gz-0VW"/>
+                        <outlet property="activityIndicator" destination="wfJ-h4-Mng" id="7hD-Gq-Iuo"/>
+                        <outlet property="button" destination="Igk-FV-9jv" id="WXw-Wd-faI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
