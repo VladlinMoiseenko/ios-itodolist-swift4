@@ -19,11 +19,11 @@ class ApiController {
             .subscribe(onNext: { resp, data in
                 do {
                     let modelAuthorize: Authorize = try JSONDecoder().decode(Authorize.self, from: data)
-                    print(modelAuthorize)
+                    //print(modelAuthorize)
                     success(modelAuthorize)
                 } catch {
                     let modelAuthorize = Authorize()
-                    print(modelAuthorize)
+                    //print(modelAuthorize)
                     success(modelAuthorize)
                 }
             }, onError: { error in
@@ -41,6 +41,7 @@ class ApiController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { resp, data in
                 let modelAccesstoken: Accesstoken = try! JSONDecoder().decode(Accesstoken.self, from: data)
+                print(modelAccesstoken)
                 success(modelAccesstoken)
             }, onError: { error in
                 failure("Error")

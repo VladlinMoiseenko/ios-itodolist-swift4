@@ -49,15 +49,18 @@ class ViewController: UIViewController {
                 
                 self!.loginViewModel?.apiAuthorize(username!, password!)
                 
+                
+                self?.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self?.doLoginOnward), userInfo: nil, repeats: false)
+                
                 //Observable.just("UIBarButtonItem with 3 seconds delay").delaySubscription(3, scheduler: MainScheduler.instance)
                 
                 //self!.button.rx.bind(to: self!.sharedAction, input: .barButton)
                 
-                print("at", UserDefaults.standard.string(forKey: "accessToken"))
+                print("at0", UserDefaults.standard.string(forKey: "accessToken"))
                 
                 observer.onCompleted()
                
-                print("at", UserDefaults.standard.string(forKey: "accessToken"))
+                
                 
                 return Disposables.create()
                 
@@ -76,11 +79,28 @@ class ViewController: UIViewController {
                 self?.activityIndicator.stopAnimating()
             }
         }).disposed(by: self.disposeBag)
-
-        
-        
-        
+ 
     }
+
+    
+    @objc func doLoginOnward() {
+        
+        print("at1", UserDefaults.standard.string(forKey: "accessToken"))
+        
+        //        if UserDefaults.standard.string(forKey: "accessToken") != "empty" {
+        //            let vc = storyboard?.instantiateViewController(withIdentifier: "MainVC") as! MainViewController
+        //            self.navigationController?.pushViewController(vc, animated: true)
+        //        } else {
+        //
+        //            self.activityIndicator.stopAnimating()
+        //            self._login_button.isEnabled = true
+        //
+        //            let alert = UIAlertController(title: "Username or Password incorrect", message: "Please re-type username or password.", preferredStyle: .alert)
+        //            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        //            self.present(alert, animated: true)
+        //        }
+    }
+    
     
     @IBAction func LoginButton(_ sender: Any) {
         
@@ -103,32 +123,19 @@ class ViewController: UIViewController {
 //        doLogin(username!, password!)
     }
     
-    func doLogin(_ username:String, _ password:String) {
-        
-        self.activityIndicator.startAnimating()
-        self._login_button.isEnabled = false
-        
-        UserDefaults.standard.set("empty", forKey: "accessToken")
-        
-        loginViewModel?.apiAuthorize(username, password)
-
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(doLoginOnward), userInfo: nil, repeats: false)
-    }
+//    func doLogin(_ username:String, _ password:String) {
+//
+//        self.activityIndicator.startAnimating()
+//        self._login_button.isEnabled = false
+//
+//        UserDefaults.standard.set("empty", forKey: "accessToken")
+//
+//        loginViewModel?.apiAuthorize(username, password)
+//
+//        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(doLoginOnward), userInfo: nil, repeats: false)
+//    }
     
-    @objc func doLoginOnward() {
-        if UserDefaults.standard.string(forKey: "accessToken") != "empty" {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "MainVC") as! MainViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-        } else {
-            
-            self.activityIndicator.stopAnimating()
-            self._login_button.isEnabled = true
-            
-            let alert = UIAlertController(title: "Username or Password incorrect", message: "Please re-type username or password.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true)
-        }
-    }
+
     
 
 }
