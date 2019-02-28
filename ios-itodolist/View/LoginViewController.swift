@@ -4,11 +4,6 @@ import RxCocoa
 import RxDataSources
 import Action
 
-enum SharedInput {
-    case barButton
-    //case barButton
-}
-
 class ViewController: UIViewController {
 
     @IBOutlet var _username: UITextField!
@@ -34,8 +29,6 @@ class ViewController: UIViewController {
                 
                 let username = self._username.text
                 let password = self._password.text
-                
-                //print("username", username)
                 
                 if (username == "") {
                     let alert = UIAlertController(title: "Username is empty", message: "Please type username.", preferredStyle: .alert)
@@ -63,12 +56,9 @@ class ViewController: UIViewController {
             )
             .disposed(by: disposeBag)
         
-        
     }
     
     @objc func doLoginOnward() {
-        
-        //print("at1", UserDefaults.standard.string(forKey: "accessToken"))
         
         if UserDefaults.standard.string(forKey: "accessToken") != "empty" {
             let vc = storyboard?.instantiateViewController(withIdentifier: "MainVC") as! MainViewController
