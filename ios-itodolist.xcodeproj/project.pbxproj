@@ -10,6 +10,8 @@
 		8405A1C8220CA82C0014FFC7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A1C7220CA82C0014FFC7 /* MainViewModel.swift */; };
 		84102FB2220F113F008D786E /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84102FB1220F113F008D786E /* Credentials.swift */; };
 		8431DB0D2210281C006BDBBA /* Authorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431DB0C2210281C006BDBBA /* Authorize.swift */; };
+		8453F11D2227E9BD00E37627 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8453F11C2227E9BD00E37627 /* TableViewCell.xib */; };
+		8453F11F2227EB4800E37627 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453F11E2227EB4800E37627 /* TableViewCell.swift */; };
 		84EB7DB6220C73A700C43AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB7DB5220C73A700C43AFB /* AppDelegate.swift */; };
 		84EB7DB8220C73A700C43AFB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB7DB7220C73A700C43AFB /* LoginViewController.swift */; };
 		84EB7DBB220C73A700C43AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB7DB9220C73A700C43AFB /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 		8405A1C7220CA82C0014FFC7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		84102FB1220F113F008D786E /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		8431DB0C2210281C006BDBBA /* Authorize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorize.swift; sourceTree = "<group>"; };
+		8453F11C2227E9BD00E37627 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		8453F11E2227EB4800E37627 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		84EB7DB2220C73A700C43AFB /* ios-itodolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-itodolist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB7DB5220C73A700C43AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EB7DB7220C73A700C43AFB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 			children = (
 				84EB7DB7220C73A700C43AFB /* LoginViewController.swift */,
 				84EB7DC7220C91FE00C43AFB /* MainViewController.swift */,
+				8453F11E2227EB4800E37627 /* TableViewCell.swift */,
+				8453F11C2227E9BD00E37627 /* TableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84FA967A220DD7C4008C62E5 /* title_icon@2x.png in Resources */,
+				8453F11D2227E9BD00E37627 /* TableViewCell.xib in Resources */,
 				84EB7DC0220C73AA00C43AFB /* LaunchScreen.storyboard in Resources */,
 				84EB7DBD220C73AA00C43AFB /* Assets.xcassets in Resources */,
 				84EB7DBB220C73A700C43AFB /* Main.storyboard in Resources */,
@@ -255,6 +262,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -269,6 +277,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -290,6 +299,7 @@
 				84EB7DCE220C9AAB00C43AFB /* LoginViewModel.swift in Sources */,
 				84EB7DCC220C979200C43AFB /* ApiController.swift in Sources */,
 				8431DB0D2210281C006BDBBA /* Authorize.swift in Sources */,
+				8453F11F2227EB4800E37627 /* TableViewCell.swift in Sources */,
 				84EB7DCA220C974000C43AFB /* Task.swift in Sources */,
 				84EB7DB6220C73A700C43AFB /* AppDelegate.swift in Sources */,
 				84102FB2220F113F008D786E /* Credentials.swift in Sources */,
