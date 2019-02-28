@@ -17,22 +17,22 @@ class MainViewController: UIViewController {
 
         mainViewModel = MainViewModel()
         
-        let datasource = RxTableViewSectionedReloadDataSource<SectionViewModel>(configureCell: { (dataSource, tableView, indexPath, mainViewModel) in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            cell.textLabel?.text = mainViewModel.title
-            cell.detailTextLabel?.text = mainViewModel.timeString
-            
-            cell.textLabel?.isHighlighted = mainViewModel.isCollision
-            cell.detailTextLabel?.isHighlighted = mainViewModel.isCollision
-            return cell
-            
-        }, titleForHeaderInSection: { (dataSource, index) in
-            return dataSource[index].header
-        })
-        
-        mainViewModel?.scheduleItems.asObservable()
-            .bind(to: tableView.rx.items(dataSource: datasource))
-            .disposed(by: disposeBag)
+//        let datasource = RxTableViewSectionedReloadDataSource<SectionViewModel>(configureCell: { (dataSource, tableView, indexPath, mainViewModel) in
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//            cell.textLabel?.text = mainViewModel.title
+//            cell.detailTextLabel?.text = mainViewModel.timeString
+//            
+//            cell.textLabel?.isHighlighted = mainViewModel.isCollision
+//            cell.detailTextLabel?.isHighlighted = mainViewModel.isCollision
+//            return cell
+//            
+//        }, titleForHeaderInSection: { (dataSource, index) in
+//            return dataSource[index].header
+//        })
+//        
+//        mainViewModel?.scheduleItems.asObservable()
+//            .bind(to: tableView.rx.items(dataSource: datasource))
+//            .disposed(by: disposeBag)
         
     }
     
