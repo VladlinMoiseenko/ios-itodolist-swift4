@@ -1,46 +1,114 @@
+import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
 
-//struct SectionViewModel {
-//    var header: String
-//    var items: [ScheduleViewModel]
-//}
-//
-//extension SectionViewModel: SectionModelType {
-//    typealias Item = ScheduleViewModel
-//
-//    init(original: SectionViewModel, items: [ScheduleViewModel]) {
-//        self = original
-//        self.items = items
-//    }
-//}
+protocol ViewModelOutputs {
+    var items: BehaviorRelay<[SectionModel]> { get }
+    func tapped(cellViewModel: TableCellViewModel)
+}
 
-class MainViewModel {
+class ViewModel: ViewModelOutputs  {
     
-//    let scheduleItems = Variable<[SectionViewModel]>([])
-//    let disposeBag = DisposeBag()
-//
-//    init() {
-//        Service().loadSchedule().subscribe(onNext: { [weak self] schedules in
-//
-//            var scheduleViewModels = schedules.sorted { $0.start < $1.start }
-//                .map { ScheduleViewModel.init(with: $0) }
-//
-//            for i in 0..<scheduleViewModels.count-1 {
-//                guard let prevDate = scheduleViewModels[i].endDate, let nextDate = scheduleViewModels[i+1].startDate else { return }
-//                if prevDate > nextDate {
-//                    scheduleViewModels[i].isCollision = true
-//                    scheduleViewModels[i+1].isCollision = true
-//                }
-//            }
-//
-//            self?.scheduleItems.value = Dictionary(grouping: scheduleViewModels, by: { $0.dayString })
-//                .map { SectionViewModel(header: $0.key, items: $0.value) }
-//                .sorted { $0.header < $1.header }
-//            }, onError: { [weak self] error in
-//                self?.scheduleItems.value = []
-//        }).disposed(by: disposeBag)
-//    }
+    var items = BehaviorRelay<[SectionModel]>(value: [])
+    
+    private let viewModels = BehaviorRelay<[TableCellViewModel]>(value: [])
+    private let itemPublisher = PublishRelay<[TableCellViewModel]>()
+    
+    private var disposeBag: DisposeBag!
+    
+    init() {
+        bindRx()
+        setDebugItems()
+    }
+    
+    func tapped(cellViewModel: TableCellViewModel) {
+        
+        let nextItems = viewModels.value.enumerated().map { (offset, item) -> TableCellViewModel in
+            if item.id != cellViewModel.id {
+                return item
+            }
+            
+            var newViewModel = item
+            newViewModel.count += 1
+            return newViewModel
+        }
+        
+        itemPublisher.accept(nextItems)
+    }
+    
+    private func setDebugItems() {
+        let items = (0...2).map { num -> TableCellViewModel in
+            let name = "Tester \(num)"
+            let age = 3 * (num + 1)
+            let message = "Tester \(num)num! \(age)age"
+            let count = 0
+            let isKeeping = num % 2 == 0
+            return TableCellViewModel(name: name,
+                                      age: age,
+                                      message: message,
+                                      count: count,
+                                      isKeeping: isKeeping)
+        }
+        
+        itemPublisher.accept(items)
+    }
+
+}
+
+extension ViewModel {
+    private func bindRx() {
+        self.disposeBag = DisposeBag()
+        
+        DataSubject.AddedNotification.subscribe(onNext: { [weak self] cellViewModel in
+            print("new data: \(cellViewModel)")
+            self?.updateItem(viewModel: cellViewModel)
+        }).disposed(by: disposeBag)
+        
+        itemPublisher.subscribe(onNext: { [weak self] items in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.viewModels.accept(items)
+            
+            let elements = items.map { SectionItem(viewModel: $0) }
+            strongSelf.items.accept([SectionModel(model: .section0, items: elements)])
+            
+        }).disposed(by: disposeBag)
+    }
+    
+    private func updateItem(viewModel: TableCellViewModel) {
+        var preItems = viewModels.value
+        preItems.append(viewModel)
+        itemPublisher.accept(preItems)
+    }
+}
+
+/// RxDataSources
+typealias SectionModel = AnimatableSectionModel<SectionID, SectionItem>
+
+/// SectionID
+enum SectionID: String, IdentifiableType {
+    case section0
+    
+    var identity: String {
+        return rawValue
+    }
+}
+
+/// SectionItem
+struct SectionItem: IdentifiableType, Equatable {
+    var viewModel: TableCellViewModel
+    
+    var identity: String {
+        return viewModel.id
+    }
+    
+    var itemCount: Int {
+        return viewModel.count
+    }
+    
+    static func == (lhs: SectionItem, rhs: SectionItem) -> Bool {
+        return lhs.identity == rhs.identity && lhs.viewModel.count == rhs.viewModel.count
+    }
     
 }
