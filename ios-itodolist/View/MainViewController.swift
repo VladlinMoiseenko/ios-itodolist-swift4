@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBarItems()
+        //setupNavigationBarItems()
         configureTableView()
         bindRx()
     }
