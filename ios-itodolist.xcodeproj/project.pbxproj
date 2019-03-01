@@ -88,10 +88,10 @@
 		84118E02222857FE00641FCE /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				84C8BD0E2228649400D24E9C /* Main.storyboard */,
 				84EB7DBE220C73AA00C43AFB /* LaunchScreen.storyboard */,
 				84118E04222858F400641FCE /* Root.storyboard */,
 				84EB7DB9220C73A700C43AFB /* Login.storyboard */,
+				84C8BD0E2228649400D24E9C /* Main.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";

@@ -61,8 +61,12 @@ class ViewController: UIViewController {
     @objc func doLoginOnward() {
         
         if UserDefaults.standard.string(forKey: "accessToken") != "empty" {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "MainVC") as! MainViewController
+            
+            guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() else {
+                return
+            }
             self.navigationController?.pushViewController(vc, animated: true)
+            
         } else {
 
             self.activityIndicator.stopAnimating()
