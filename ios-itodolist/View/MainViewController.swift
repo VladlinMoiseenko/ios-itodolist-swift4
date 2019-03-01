@@ -23,10 +23,6 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addAction(_ sender: Any) {
-        print(12)
-    }
-    
     private func configureTableView() {
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "TableViewCell")
@@ -48,9 +44,9 @@ class MainViewController: UIViewController {
                     return .animated
             }, configureCell: { (dataSource, tableView, indexPath, item) -> UITableViewCell in
                 
-                if indexPath.row == 0 {
-                    print("[indexPath:0], \(item), count:\(item.itemCount)")
-                }
+//                if indexPath.row == 0 {
+//                    print("[indexPath:0], \(item), count:\(item.itemCount)")
+//                }
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
                 if let cell = cell as? TableViewCell {
@@ -73,7 +69,7 @@ class MainViewController: UIViewController {
             })
         
         viewModel.items
-            .debug()
+            //.debug()
             .bind(to: tableView.rx.items(dataSource: dataSources))
             .disposed(by: disposeBag)
         
@@ -100,7 +96,7 @@ class MainViewController: UIViewController {
         let logoutButton = UIButton(type: .system)
         logoutButton.setTitle("Logout", for: .normal)
         logoutButton.addTarget(self, action: #selector(logoutButtonAction), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: logoutButton)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoutButton)
     }
     
     @objc func logoutButtonAction() {

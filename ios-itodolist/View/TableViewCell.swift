@@ -14,7 +14,7 @@ struct TableCellViewModel {
     let id = UUID().uuidString
     var name: String
     var age: Int
-    var message: String
+    //var message: String
     var count: Int
     var isKeeping: Bool
 }
@@ -23,7 +23,7 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    @IBOutlet weak var messageLabel: UILabel!
+    //@IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var keepingStateView: UIView!
     
@@ -48,7 +48,7 @@ class TableViewCell: UITableViewCell {
     private func updateUI(viewModel: TableCellViewModel){
         nameLabel.text = viewModel.name
         ageLabel.text = "age: \(viewModel.age)"
-        messageLabel.text = viewModel.message
+        //messageLabel.text = viewModel.message
         counterLabel.text = "\(viewModel.count)"
         
         keepingStateView.backgroundColor = viewModel.isKeeping ? UIColor.green : UIColor.black

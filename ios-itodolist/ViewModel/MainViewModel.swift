@@ -29,6 +29,8 @@ class ViewModel: ViewModelOutputs  {
                 return item
             }
             
+            print(item.age)
+            
             var newViewModel = item
             newViewModel.count += 1
             return newViewModel
@@ -41,12 +43,12 @@ class ViewModel: ViewModelOutputs  {
         let items = (0...2).map { num -> TableCellViewModel in
             let name = "Tester \(num)"
             let age = 3 * (num + 1)
-            let message = "Tester \(num)num! \(age)age"
+            //let message = "Tester \(num)num! \(age)age"
             let count = 0
             let isKeeping = num % 2 == 0
             return TableCellViewModel(name: name,
                                       age: age,
-                                      message: message,
+                                      //message: message,
                                       count: count,
                                       isKeeping: isKeeping)
         }
@@ -61,7 +63,7 @@ extension ViewModel {
         self.disposeBag = DisposeBag()
         
         DataSubject.AddedNotification.subscribe(onNext: { [weak self] cellViewModel in
-            print("new data: \(cellViewModel)")
+            //print("new data: \(cellViewModel)")
             self?.updateItem(viewModel: cellViewModel)
         }).disposed(by: disposeBag)
         
@@ -83,10 +85,10 @@ extension ViewModel {
     }
 }
 
-/// RxDataSources
+// RxDataSources
 typealias SectionModel = AnimatableSectionModel<SectionID, SectionItem>
 
-/// SectionID
+// SectionID
 enum SectionID: String, IdentifiableType {
     case section0
     
@@ -95,7 +97,7 @@ enum SectionID: String, IdentifiableType {
     }
 }
 
-/// SectionItem
+// SectionItem
 struct SectionItem: IdentifiableType, Equatable {
     var viewModel: TableCellViewModel
     
