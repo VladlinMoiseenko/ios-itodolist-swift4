@@ -16,7 +16,7 @@ struct TableCellViewModel {
     var age: Int
     //var message: String
     var count: Int
-    var isKeeping: Bool
+    //var isKeeping: Bool
 }
 
 class TableViewCell: UITableViewCell {
@@ -25,7 +25,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var ageLabel: UILabel!
     //@IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var keepingStateView: UIView!
+    //@IBOutlet weak var keepingStateView: UIView!
     
     var viewModel: TableCellViewModel!
     var disposeBag = DisposeBag()
@@ -50,8 +50,7 @@ class TableViewCell: UITableViewCell {
         ageLabel.text = "age: \(viewModel.age)"
         //messageLabel.text = viewModel.message
         counterLabel.text = "\(viewModel.count)"
-        
-        keepingStateView.backgroundColor = viewModel.isKeeping ? UIColor.green : UIColor.black
+        //keepingStateView.backgroundColor = viewModel.isKeeping ? UIColor.green : UIColor.black
     }
     
 }

@@ -45,12 +45,13 @@ class ViewModel: ViewModelOutputs  {
             let age = 3 * (num + 1)
             //let message = "Tester \(num)num! \(age)age"
             let count = 0
-            let isKeeping = num % 2 == 0
+            //let isKeeping = num % 2 == 0
             return TableCellViewModel(name: name,
                                       age: age,
                                       //message: message,
-                                      count: count,
-                                      isKeeping: isKeeping)
+                                      count: count
+                                      //, isKeeping: isKeeping
+            )
         }
         
         itemPublisher.accept(items)

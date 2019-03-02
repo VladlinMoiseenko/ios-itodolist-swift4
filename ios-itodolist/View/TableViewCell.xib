@@ -40,14 +40,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3s-gq-a2c" userLabel="KeepingMark">
-                                <rect key="frame" x="260" y="0.0" width="40" height="40"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="JtF-Hi-Mfl"/>
-                                    <constraint firstAttribute="width" constant="40" id="rOf-W9-LcO"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyB-8g-kjb">
                                 <rect key="frame" x="0.0" y="71" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -61,9 +53,7 @@
                             <constraint firstItem="303-Gg-nUf" firstAttribute="leading" secondItem="5wu-wF-T37" secondAttribute="leading" id="1cD-ke-Kf6"/>
                             <constraint firstItem="303-Gg-nUf" firstAttribute="top" secondItem="Je0-jv-TkU" secondAttribute="bottom" constant="6" id="5fo-Gi-OJw"/>
                             <constraint firstItem="Je0-jv-TkU" firstAttribute="top" secondItem="5wu-wF-T37" secondAttribute="top" id="KUU-6a-ACQ"/>
-                            <constraint firstItem="q3s-gq-a2c" firstAttribute="top" secondItem="5wu-wF-T37" secondAttribute="top" id="OHf-bE-eeR"/>
                             <constraint firstItem="Je0-jv-TkU" firstAttribute="leading" secondItem="5wu-wF-T37" secondAttribute="leading" id="kZw-A8-hOA"/>
-                            <constraint firstAttribute="trailing" secondItem="q3s-gq-a2c" secondAttribute="trailing" id="xTA-7l-izJ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -78,7 +68,6 @@
             <connections>
                 <outlet property="ageLabel" destination="303-Gg-nUf" id="djQ-n5-fY1"/>
                 <outlet property="counterLabel" destination="VyB-8g-kjb" id="Hbp-A5-s1I"/>
-                <outlet property="keepingStateView" destination="q3s-gq-a2c" id="naa-BI-sFN"/>
                 <outlet property="nameLabel" destination="Je0-jv-TkU" id="bCp-nf-jqH"/>
             </connections>
             <point key="canvasLocation" x="129.59999999999999" y="-45.877061469265371"/>
