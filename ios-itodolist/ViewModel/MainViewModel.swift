@@ -58,9 +58,15 @@ class ViewModel: ViewModelOutputs  {
     private func setDebugItems() {
         
         getTasksData(success: {modelTaskData in
-            print(modelTaskData)
-            //return modelTaskData
+            print(modelTaskData.id)
+
             self.itemPublisher.accept([modelTaskData])
+            
+//            for contact in [modelTaskData] {
+//                self.itemPublisher.accept([contact])
+//            }
+            
+            
             }, failure: { errorMsg in
                 print(errorMsg)
             })
@@ -96,6 +102,9 @@ class ViewModel: ViewModelOutputs  {
                     for object in array {
                         if let ob = object as? [String: Any] {
                             let dmodel = TableCellViewModel(json: ob)
+                            
+                            //self.itemPublisher.accept([dmodel])
+                            
                             success(dmodel)
                         }
                     }
