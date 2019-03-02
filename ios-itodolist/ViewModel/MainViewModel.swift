@@ -2,6 +2,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Alamofire
+import Foundation
+import RxAlamofire
 
 protocol ViewModelOutputs {
     var items: BehaviorRelay<[SectionModel]> { get }
@@ -9,6 +12,8 @@ protocol ViewModelOutputs {
 }
 
 class ViewModel: ViewModelOutputs  {
+    
+    var apiController: ApiController?
     
     var items = BehaviorRelay<[SectionModel]>(value: [])
     
@@ -25,11 +30,9 @@ class ViewModel: ViewModelOutputs  {
     func tapped(cellViewModel: TableCellViewModel) {
         
         let nextItems = viewModels.value.enumerated().map { (offset, item) -> TableCellViewModel in
-            if item.id != cellViewModel.id {
-                return item
-            }
-            
-            print(item.age)
+//            if item.id != cellViewModel.id {
+//                return item
+//            }
             
             var newViewModel = item
             newViewModel.count += 1
@@ -39,24 +42,72 @@ class ViewModel: ViewModelOutputs  {
         itemPublisher.accept(nextItems)
     }
     
+//    private func setDebugItems() {
+//        let items = (0...2).map { num -> TableCellViewModel in
+//            let name = "Tester \(num)"
+//            let age = 3 * (num + 1)
+//            let count = 0
+//            return TableCellViewModel(name: name,
+//                                      age: age,
+//                                      count: count
+//            )
+//        }
+//        itemPublisher.accept(items)
+//    }
+    
     private func setDebugItems() {
-        let items = (0...2).map { num -> TableCellViewModel in
-            let name = "Tester \(num)"
-            let age = 3 * (num + 1)
-            //let message = "Tester \(num)num! \(age)age"
-            let count = 0
-            //let isKeeping = num % 2 == 0
-            return TableCellViewModel(name: name,
-                                      age: age,
-                                      //message: message,
-                                      count: count
-                                      //, isKeeping: isKeeping
-            )
-        }
         
-        itemPublisher.accept(items)
-    }
+        getTasksData(success: {modelTaskData in
+            print(modelTaskData)
+            //return modelTaskData
+            self.itemPublisher.accept([modelTaskData])
+            }, failure: { errorMsg in
+                print(errorMsg)
+            })
 
+        
+//            let items = (0...2).map { num -> TableCellViewModel in
+//                let id = "id"
+//                let title = "Tester \(num)"
+//                let count = 0
+//                return TableCellViewModel(id: id,
+//                                          title: title,
+//                                          count: count
+//                )
+//            }
+//            self.itemPublisher.accept(items)
+            
+
+    }
+    
+    func getTasksData(success: @escaping (TableCellViewModel) -> Void, failure: @escaping (String) -> Void) {
+        RxAlamofire.requestJSON(.get, "http://apitdlist.dev.vladlin.ru/v1/task")
+            .observeOn(MainScheduler.instance)
+            .map { (r, json) -> [String: Any] in
+                guard let jsonDict = json as? [String: Any] else {
+                    return [:]
+                }
+                return jsonDict
+            }
+            .subscribe(onNext: { jsonDict in
+                //let model = Task(jsonDict: jsonDict)
+                
+                if let array = jsonDict["data"] as? [Any] {
+                    for object in array {
+                        if let ob = object as? [String: Any] {
+                            let dmodel = TableCellViewModel(json: ob)
+                            success(dmodel)
+                        }
+                    }
+                }
+                
+            }, onError: { error in
+                failure("Error")
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    
 }
 
 extension ViewModel {

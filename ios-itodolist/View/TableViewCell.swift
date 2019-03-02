@@ -11,12 +11,23 @@ enum KeepingState {
 }
 
 struct TableCellViewModel {
-    let id = UUID().uuidString
-    var name: String
-    var age: Int
-    //var message: String
+    //let id = UUID().uuidString
+    let id: String
+    var title: String
     var count: Int
-    //var isKeeping: Bool
+    
+    init() {
+        self.id = ""
+        self.title = ""
+        self.count = 0
+    }
+    
+    init(json: [String: Any]) {
+        id = json["id"] as? String ?? ""
+        title = json["title"] as? String ?? ""
+        count = 0
+    }
+    
 }
 
 class TableViewCell: UITableViewCell {
@@ -46,11 +57,9 @@ class TableViewCell: UITableViewCell {
     }
     
     private func updateUI(viewModel: TableCellViewModel){
-        nameLabel.text = viewModel.name
-        ageLabel.text = "age: \(viewModel.age)"
-        //messageLabel.text = viewModel.message
+        nameLabel.text = viewModel.title
+        ageLabel.text = viewModel.id
         counterLabel.text = "\(viewModel.count)"
-        //keepingStateView.backgroundColor = viewModel.isKeeping ? UIColor.green : UIColor.black
     }
     
 }

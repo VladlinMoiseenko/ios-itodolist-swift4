@@ -18,17 +18,21 @@ struct Task {
     
 }
 
+
 struct TaskData {
     let id: String
     let title: String
+    let count: Int
     
     init() {
         self.id = ""
         self.title = ""
+        self.count = 0
     }
     
     init(json: [String: Any]) {
         id = json["id"] as? String ?? ""
         title = json["title"] as? String ?? ""
+        count = 0
     }
 }
