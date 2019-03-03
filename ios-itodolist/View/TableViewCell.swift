@@ -11,19 +11,19 @@ enum KeepingState {
 }
 
 struct TableCellViewModel {
-    //let id = UUID().uuidString
-    let id: String
+    let id = UUID().uuidString
+    let idtask: String
     var title: String
     var count: Int
     
     init() {
-        self.id = ""
+        self.idtask = ""
         self.title = ""
         self.count = 0
     }
     
     init(json: [String: Any]) {
-        id = json["id"] as? String ?? ""
+        idtask = json["id"] as? String ?? ""
         title = json["title"] as? String ?? ""
         count = 0
     }
@@ -58,7 +58,7 @@ class TableViewCell: UITableViewCell {
     
     private func updateUI(viewModel: TableCellViewModel){
         nameLabel.text = viewModel.title
-        ageLabel.text = viewModel.id
+        ageLabel.text = viewModel.idtask
         counterLabel.text = "\(viewModel.count)"
     }
     

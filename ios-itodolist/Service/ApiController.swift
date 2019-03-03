@@ -49,7 +49,7 @@ class ApiController {
             .disposed(by: disposeBag)
     }
     
-    func fetchTasksData(success: @escaping (TaskData) -> Void, failure: @escaping (String) -> Void) {
+    func getTasksData(success: @escaping ([TableCellViewModel]) -> Void, failure: @escaping (String) -> Void) {
         RxAlamofire.requestJSON(.get, "http://apitdlist.dev.vladlin.ru/v1/task")
             .observeOn(MainScheduler.instance)
             .map { (r, json) -> [String: Any] in
@@ -59,21 +59,52 @@ class ApiController {
                 return jsonDict
             }
             .subscribe(onNext: { jsonDict in
-                //let model = Task(jsonDict: jsonDict)
+                
+                var items: [TableCellViewModel] = []
                 
                 if let array = jsonDict["data"] as? [Any] {
                     for object in array {
                         if let ob = object as? [String: Any] {
-                            let dmodel = TaskData(json: ob)
-                            success(dmodel)
+                            let dmodel = TableCellViewModel(json: ob)
+                            
+                            items.append(dmodel)
+                            
                         }
                     }
                 }
+                success(items)
                 
             }, onError: { error in
                 failure("Error")
             })
             .disposed(by: disposeBag)
-    }
+    }    
+    
+//    func fetchTasksData(success: @escaping (TaskData) -> Void, failure: @escaping (String) -> Void) {
+//        RxAlamofire.requestJSON(.get, "http://apitdlist.dev.vladlin.ru/v1/task")
+//            .observeOn(MainScheduler.instance)
+//            .map { (r, json) -> [String: Any] in
+//                guard let jsonDict = json as? [String: Any] else {
+//                    return [:]
+//                }
+//                return jsonDict
+//            }
+//            .subscribe(onNext: { jsonDict in
+//                //let model = Task(jsonDict: jsonDict)
+//
+//                if let array = jsonDict["data"] as? [Any] {
+//                    for object in array {
+//                        if let ob = object as? [String: Any] {
+//                            let dmodel = TaskData(json: ob)
+//                            success(dmodel)
+//                        }
+//                    }
+//                }
+//
+//            }, onError: { error in
+//                failure("Error")
+//            })
+//            .disposed(by: disposeBag)
+//    }
     
 }

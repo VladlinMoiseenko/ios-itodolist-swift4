@@ -30,9 +30,11 @@ class ViewModel: ViewModelOutputs  {
     func tapped(cellViewModel: TableCellViewModel) {
         
         let nextItems = viewModels.value.enumerated().map { (offset, item) -> TableCellViewModel in
-//            if item.id != cellViewModel.id {
-//                return item
-//            }
+            if item.id != cellViewModel.id {
+                return item
+            }
+            
+            print("tap idtask:", item.idtask)
             
             var newViewModel = item
             newViewModel.count += 1
@@ -44,48 +46,16 @@ class ViewModel: ViewModelOutputs  {
     
     private func setDebugItems() {
         
-        getTasksData(success: {modelTaskData in
-
+        apiController = ApiController()
+        
+        apiController?.getTasksData(success: {modelTaskData in
+            //print(modelTaskData)
             self.itemPublisher.accept(modelTaskData)
             
             }, failure: { errorMsg in
                 print(errorMsg)
             })
     }
-    
-    func getTasksData(success: @escaping ([TableCellViewModel]) -> Void, failure: @escaping (String) -> Void) {
-        RxAlamofire.requestJSON(.get, "http://apitdlist.dev.vladlin.ru/v1/task")
-            .observeOn(MainScheduler.instance)
-            .map { (r, json) -> [String: Any] in
-                guard let jsonDict = json as? [String: Any] else {
-                    return [:]
-                }
-                return jsonDict
-            }
-            .subscribe(onNext: { jsonDict in
-                //let model = Task(jsonDict: jsonDict)
-
-                var items: [TableCellViewModel] = []
-                //var dmodel = TableCellViewModel()
-                
-                if let array = jsonDict["data"] as? [Any] {
-                    for object in array {
-                        if let ob = object as? [String: Any] {
-                            let dmodel = TableCellViewModel(json: ob)
-
-                            items.append(dmodel)
-
-                        }
-                    }
-                }
-                success(items)
-
-            }, onError: { error in
-                failure("Error")
-            })
-            .disposed(by: disposeBag)
-    }
-    
     
 }
 
