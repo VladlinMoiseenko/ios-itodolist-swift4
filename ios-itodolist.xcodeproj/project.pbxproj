@@ -92,6 +92,7 @@
 				84118E04222858F400641FCE /* Root.storyboard */,
 				84EB7DB9220C73A700C43AFB /* Login.storyboard */,
 				84C8BD0E2228649400D24E9C /* Main.storyboard */,
+				8453F11C2227E9BD00E37627 /* TableViewCell.xib */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -143,7 +144,6 @@
 				84EB7DB7220C73A700C43AFB /* LoginViewController.swift */,
 				84EB7DC7220C91FE00C43AFB /* MainViewController.swift */,
 				8453F11E2227EB4800E37627 /* TableViewCell.swift */,
-				8453F11C2227E9BD00E37627 /* TableViewCell.xib */,
 				84BDADD3222824BC0090811D /* DataSubject.swift */,
 			);
 			path = View;

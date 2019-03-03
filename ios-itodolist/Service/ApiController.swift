@@ -47,33 +47,48 @@ class ApiController {
             .disposed(by: disposeBag)
     }
     
+//    func getTasks(success: @escaping ([TableCellViewModel]) -> Void, failure: @escaping (String) -> Void) {
+//        RxAlamofire.requestData(.get,
+//                                ENDPOINT_URL+"v1/task",
+//                                encoding: JSONEncoding.default,
+//                                headers: ["Content-Type": "application/json", "Authorization" : "aa946c25b8baa8196d46f05391865304"])
+//            .observeOn(MainScheduler.instance)
+//            .subscribe(onNext: { resp, data in
+//                let modelTask: Task = try! JSONDecoder().decode(Task.self, from: data)
+//                print("task", modelTask)
+//                //success(modelTask)
+//            }, onError: { error in
+//                failure("Error")
+//            })
+//            .disposed(by: disposeBag)
+//    }
+    
     func getTasks(success: @escaping ([TableCellViewModel]) -> Void, failure: @escaping (String) -> Void) {
-        RxAlamofire.requestData(.get,
+        let accessToken:String = UserDefaults.standard.string(forKey: "accessToken")!
+        let headers = ["Content-Type": "application/json", "Authorization" : accessToken]
+        RxAlamofire.requestJSON(.get,
                                 ENDPOINT_URL+"v1/task",
                                 encoding: JSONEncoding.default,
-                                headers: ["Content-Type": "application/json", "Authorization" : "aa946c25b8baa8196d46f05391865304"])
+                                headers: headers
+            )
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { resp, data in
-                let modelTask: Task = try! JSONDecoder().decode(Task.self, from: data)
-                print("task", modelTask)
-                //success(modelAccesstoken)
-//            .subscribe(onNext: { jsonDict in
-//
-//                var items: [TableCellViewModel] = []
-//
-//                if let array = jsonDict["data"] as? [Any] {
-//                    for object in array {
-//                        if let ob = object as? [String: Any] {
-//                            let dmodel = TableCellViewModel(json: ob)
-//
-//                            items.append(dmodel)
-//
-//                        }
-//                    }
-//                }
-//                print("items", items)
-//                success(items)
-        
+            .map { (r, json) -> [String: Any] in
+                guard let jsonDict = json as? [String: Any] else {
+                    return [:]
+                }
+                return jsonDict
+            }
+            .subscribe(onNext: { jsonDict in
+                var items: [TableCellViewModel] = []
+                if let array = jsonDict["data"] as? [Any] {
+                    for object in array {
+                        if let ob = object as? [String: Any] {
+                            let dmodel = TableCellViewModel(json: ob)
+                            items.append(dmodel)
+                        }
+                    }
+                }
+                success(items)
             }, onError: { error in
                 failure("Error")
             })
@@ -110,7 +125,5 @@ class ApiController {
 //            })
 //            .disposed(by: disposeBag)
 //    }
-    
-
     
 }

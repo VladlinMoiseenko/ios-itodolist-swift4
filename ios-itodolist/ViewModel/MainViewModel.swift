@@ -24,7 +24,7 @@ class ViewModel: ViewModelOutputs  {
     
     init() {
         bindRx()
-        setDebugItems()
+        setItems()
     }
     
     func tapped(cellViewModel: TableCellViewModel) {
@@ -44,23 +44,15 @@ class ViewModel: ViewModelOutputs  {
         itemPublisher.accept(nextItems)
     }
     
-    private func setDebugItems() {
+    private func setItems() {
         
         apiController = ApiController()
         
         apiController?.getTasks(success: {modelTaskData in
-            print("mod", modelTaskData)
             self.itemPublisher.accept(modelTaskData)
         }, failure: { errorMsg in
             print(errorMsg)
         })
-        
-//        apiController?.getTasksData(success: {modelTaskData in
-//            //print(modelTaskData)
-//            self.itemPublisher.accept(modelTaskData)
-//        }, failure: { errorMsg in
-//            print(errorMsg)
-//        })
         
     }
     
