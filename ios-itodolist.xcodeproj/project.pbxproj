@@ -161,9 +161,9 @@
 		84FA9677220DCA42008C62E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				84EB7DC9220C974000C43AFB /* Task.swift */,
 				84102FB1220F113F008D786E /* Credentials.swift */,
 				8431DB0C2210281C006BDBBA /* Authorize.swift */,
+				84EB7DC9220C974000C43AFB /* Task.swift */,
 				84FED2182210A72100AA1F22 /* Accesstoken.swift */,
 			);
 			path = Model;

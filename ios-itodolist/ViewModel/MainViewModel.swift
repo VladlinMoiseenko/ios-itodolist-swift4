@@ -48,13 +48,20 @@ class ViewModel: ViewModelOutputs  {
         
         apiController = ApiController()
         
-        apiController?.getTasksData(success: {modelTaskData in
-            //print(modelTaskData)
+        apiController?.getTasks(success: {modelTaskData in
+            print("mod", modelTaskData)
             self.itemPublisher.accept(modelTaskData)
-            
-            }, failure: { errorMsg in
-                print(errorMsg)
-            })
+        }, failure: { errorMsg in
+            print(errorMsg)
+        })
+        
+//        apiController?.getTasksData(success: {modelTaskData in
+//            //print(modelTaskData)
+//            self.itemPublisher.accept(modelTaskData)
+//        }, failure: { errorMsg in
+//            print(errorMsg)
+//        })
+        
     }
     
 }
