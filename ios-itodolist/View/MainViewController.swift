@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Action
 
 class MainViewController: UIViewController {
  
@@ -86,23 +87,37 @@ class MainViewController: UIViewController {
     }
     
     private func setupNavigationBarItems() {
-        
+
         navigationItem.hidesBackButton = true
-        
-        let titleLabel = UILabel()
-        titleLabel.text = "Tasks"
-        navigationItem.titleView = titleLabel
-        
+
         let logoutButton = UIButton(type: .system)
         logoutButton.setTitle("Logout", for: .normal)
         logoutButton.addTarget(self, action: #selector(logoutButtonAction), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoutButton)
+
+        let addButton = UIButton(type: .contactAdd)
+        addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addButton)
+        
     }
     
     @objc func logoutButtonAction() {
         print("Logout is tapped")
+        
+        // 1 GET /v1/logout
+        
+        // 2 UserDefaults.standard.set("empty", forKey: "accessToken")
+        
+        // 3 back to Login
+        
     }
     
-
-
+    @objc func addButtonAction() {
+        print("Add is tapped")
+//        guard let vc = UIStoryboard(name: "Add", bundle: nil).instantiateInitialViewController() else {
+//            return
+//        }
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
