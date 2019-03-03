@@ -42,51 +42,18 @@ class ViewModel: ViewModelOutputs  {
         itemPublisher.accept(nextItems)
     }
     
-//    private func setDebugItems() {
-//        let items = (0...2).map { num -> TableCellViewModel in
-//            let name = "Tester \(num)"
-//            let age = 3 * (num + 1)
-//            let count = 0
-//            return TableCellViewModel(name: name,
-//                                      age: age,
-//                                      count: count
-//            )
-//        }
-//        itemPublisher.accept(items)
-//    }
-    
     private func setDebugItems() {
         
         getTasksData(success: {modelTaskData in
-            print(modelTaskData.id)
 
-            self.itemPublisher.accept([modelTaskData])
-            
-//            for contact in [modelTaskData] {
-//                self.itemPublisher.accept([contact])
-//            }
-            
+            self.itemPublisher.accept(modelTaskData)
             
             }, failure: { errorMsg in
                 print(errorMsg)
             })
-
-        
-//            let items = (0...2).map { num -> TableCellViewModel in
-//                let id = "id"
-//                let title = "Tester \(num)"
-//                let count = 0
-//                return TableCellViewModel(id: id,
-//                                          title: title,
-//                                          count: count
-//                )
-//            }
-//            self.itemPublisher.accept(items)
-            
-
     }
     
-    func getTasksData(success: @escaping (TableCellViewModel) -> Void, failure: @escaping (String) -> Void) {
+    func getTasksData(success: @escaping ([TableCellViewModel]) -> Void, failure: @escaping (String) -> Void) {
         RxAlamofire.requestJSON(.get, "http://apitdlist.dev.vladlin.ru/v1/task")
             .observeOn(MainScheduler.instance)
             .map { (r, json) -> [String: Any] in
@@ -97,19 +64,22 @@ class ViewModel: ViewModelOutputs  {
             }
             .subscribe(onNext: { jsonDict in
                 //let model = Task(jsonDict: jsonDict)
+
+                var items: [TableCellViewModel] = []
+                //var dmodel = TableCellViewModel()
                 
                 if let array = jsonDict["data"] as? [Any] {
                     for object in array {
                         if let ob = object as? [String: Any] {
                             let dmodel = TableCellViewModel(json: ob)
-                            
-                            //self.itemPublisher.accept([dmodel])
-                            
-                            success(dmodel)
+
+                            items.append(dmodel)
+
                         }
                     }
                 }
-                
+                success(items)
+
             }, onError: { error in
                 failure("Error")
             })
