@@ -15,23 +15,23 @@ class LoginViewModel {
 
         apiController?.authorize(param: param as! [String : Any], success: {modelAuthorize in
             
-        if modelAuthorize.status == 1 {
-            let param = ["authorization_code" : modelAuthorize.authorizationCode]
-            self.apiController?.accesstoken(param: param as! [String : Any], success: {modelAccesstoken in
+            if modelAuthorize.status == 1 {
+                let param = ["authorization_code" : modelAuthorize.authorizationCode]
+                self.apiController?.accesstoken(param: param as! [String : Any], success: {modelAccesstoken in
 
-                if modelAccesstoken.status == 1 {
-                    UserDefaults.standard.set(modelAccesstoken.accessToken, forKey: "accessToken")
-                } else {
-                    UserDefaults.standard.set("empty", forKey: "accessToken")
-                }
+                    if modelAccesstoken.status == 1 {
+                        UserDefaults.standard.set(modelAccesstoken.accessToken, forKey: "accessToken")
+                    } else {
+                        UserDefaults.standard.set("empty", forKey: "accessToken")
+                    }
 
-            }, failure: { errorMsg in
-                print(errorMsg)
-            })
+                }, failure: { errorMsg in
+                    print(errorMsg)
+                })
 
-        } else {
-            UserDefaults.standard.set("empty", forKey: "accessToken")
-        }
+            } else {
+                UserDefaults.standard.set("empty", forKey: "accessToken")
+            }
 
         }, failure: { errorMsg in
             print(errorMsg)

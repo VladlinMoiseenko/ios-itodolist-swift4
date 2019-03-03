@@ -8,12 +8,14 @@ class MainViewController: UIViewController {
  
     @IBOutlet weak var tableView: UITableView!
     
-    var viewModel: ViewModel!
+    var viewModel: MainViewModel!
     var disposeBag = DisposeBag()
     var dataSources: RxTableViewSectionedAnimatedDataSource<SectionModel>!
+    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
         setupNavigationBarItems()
         configureTableView()
         bindRx()
@@ -32,7 +34,7 @@ class MainViewController: UIViewController {
     
     private func bindRx() {
         self.disposeBag = DisposeBag()
-        self.viewModel = ViewModel()
+        self.viewModel = MainViewModel()
         
         let animationConfiguration = AnimationConfiguration(insertAnimation: .fade,
                                                             reloadAnimation: .fade,
@@ -88,8 +90,6 @@ class MainViewController: UIViewController {
     
     private func setupNavigationBarItems() {
 
-        navigationItem.hidesBackButton = true
-
         let logoutButton = UIButton(type: .system)
         logoutButton.setTitle("Logout", for: .normal)
         logoutButton.addTarget(self, action: #selector(logoutButtonAction), for: .touchUpInside)
@@ -102,14 +102,24 @@ class MainViewController: UIViewController {
     }
     
     @objc func logoutButtonAction() {
-        print("Logout is tapped")
+        self.viewModel = MainViewModel()
+        self.viewModel?.apiLogout()
         
-        // 1 GET /v1/logout
+        self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.doLogoutOnward), userInfo: nil, repeats: false)
         
-        // 2 UserDefaults.standard.set("empty", forKey: "accessToken")
+    }
+    
+    @objc func doLogoutOnward() {
         
-        // 3 back to Login
-        
+        if UserDefaults.standard.string(forKey: "accessToken") == "empty" {
+            
+            // 3 back to Login
+            guard let vc = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() else {
+                return
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
     }
     
     @objc func addButtonAction() {

@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true
+        
         _username.text = "demo11"
         _password.text = "demo11"
         

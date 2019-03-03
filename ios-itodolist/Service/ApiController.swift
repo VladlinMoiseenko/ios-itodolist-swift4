@@ -47,6 +47,24 @@ class ApiController {
             .disposed(by: disposeBag)
     }
     
+    func logout(success: @escaping (Logout) -> Void, failure: @escaping (String) -> Void) {
+        let accessToken:String = UserDefaults.standard.string(forKey: "accessToken")!
+        let headers = ["Content-Type": "application/json", "Authorization" : accessToken]
+        RxAlamofire.requestData(.get,
+                                ENDPOINT_URL+"v1/logout",
+                                encoding: JSONEncoding.default,
+                                headers: headers)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { resp, data in
+                let modelLogout: Logout = try! JSONDecoder().decode(Logout.self, from: data)
+                success(modelLogout)
+            }, onError: { error in
+                failure("Error")
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    
 //    func getTasks(success: @escaping ([TableCellViewModel]) -> Void, failure: @escaping (String) -> Void) {
 //        RxAlamofire.requestData(.get,
 //                                ENDPOINT_URL+"v1/task",
@@ -69,8 +87,7 @@ class ApiController {
         RxAlamofire.requestJSON(.get,
                                 ENDPOINT_URL+"v1/task",
                                 encoding: JSONEncoding.default,
-                                headers: headers
-            )
+                                headers: headers)
             .observeOn(MainScheduler.instance)
             .map { (r, json) -> [String: Any] in
                 guard let jsonDict = json as? [String: Any] else {

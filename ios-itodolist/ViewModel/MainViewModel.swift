@@ -11,7 +11,7 @@ protocol ViewModelOutputs {
     func tapped(cellViewModel: TableCellViewModel)
 }
 
-class ViewModel: ViewModelOutputs  {
+class MainViewModel: ViewModelOutputs  {
     
     var apiController: ApiController?
     
@@ -56,9 +56,21 @@ class ViewModel: ViewModelOutputs  {
         
     }
     
+    func apiLogout() {
+        apiController = ApiController()
+        apiController?.logout(success: {modelLogout in
+            if modelLogout.status == 1 {
+                UserDefaults.standard.set("empty", forKey: "accessToken")
+            }
+        }, failure: { errorMsg in
+            print(errorMsg)
+        })
+    }
+
+    
 }
 
-extension ViewModel {
+extension MainViewModel {
     private func bindRx() {
         self.disposeBag = DisposeBag()
         
