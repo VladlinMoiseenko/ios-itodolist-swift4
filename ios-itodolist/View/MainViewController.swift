@@ -124,10 +124,10 @@ class MainViewController: UIViewController {
     
     @objc func addButtonAction() {
         print("Add is tapped")
-//        guard let vc = UIStoryboard(name: "Add", bundle: nil).instantiateInitialViewController() else {
-//            return
-//        }
-//        self.navigationController?.pushViewController(vc, animated: true)
+        guard let vc = UIStoryboard(name: "Add", bundle: nil).instantiateInitialViewController() else {
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

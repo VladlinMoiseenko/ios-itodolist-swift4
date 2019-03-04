@@ -34,8 +34,8 @@ struct TableCellViewModelTask {
 
 class TableViewCell: UITableViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
     
     var viewModel: TableCellViewModelTask!
@@ -57,8 +57,8 @@ class TableViewCell: UITableViewCell {
     }
     
     private func updateUI(viewModel: TableCellViewModelTask){
-        nameLabel.text = viewModel.title
-        ageLabel.text = viewModel.idtask
+        titleLabel.text = viewModel.title
+        contentLabel.text = viewModel.content
         counterLabel.text = "\(viewModel.count)"
     }
     
