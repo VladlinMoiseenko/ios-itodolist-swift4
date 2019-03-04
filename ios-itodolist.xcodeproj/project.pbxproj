@@ -29,6 +29,7 @@
 		84EB7DCC220C979200C43AFB /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB7DCB220C979200C43AFB /* ApiController.swift */; };
 		84EB7DCE220C9AAB00C43AFB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB7DCD220C9AAB00C43AFB /* LoginViewModel.swift */; };
 		84FA967A220DD7C4008C62E5 /* title_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FA9679220DD7C4008C62E5 /* title_icon@2x.png */; };
+		84FBE60F222D8A0100F0C7E0 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBE60E222D8A0100F0C7E0 /* Status.swift */; };
 		84FED2192210A72100AA1F22 /* Accesstoken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FED2182210A72100AA1F22 /* Accesstoken.swift */; };
 		C237FBABAA5222939CA78399 /* Pods_ios_itodolist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEA48FD6634F1AF43911A5F /* Pods_ios_itodolist.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		84EB7DCB220C979200C43AFB /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		84EB7DCD220C9AAB00C43AFB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		84FA9679220DD7C4008C62E5 /* title_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_icon@2x.png"; sourceTree = "<group>"; };
+		84FBE60E222D8A0100F0C7E0 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		84FED2182210A72100AA1F22 /* Accesstoken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accesstoken.swift; sourceTree = "<group>"; };
 		F2A20B8C32A0C54F741B3551 /* Pods-ios-itodolist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-itodolist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-itodolist/Pods-ios-itodolist.debug.xcconfig"; sourceTree = "<group>"; };
 		FAEA48FD6634F1AF43911A5F /* Pods_ios_itodolist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_itodolist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 				84EB7DC9220C974000C43AFB /* Task.swift */,
 				84FED2182210A72100AA1F22 /* Accesstoken.swift */,
 				840B18AD222C525F007FC2A8 /* Logout.swift */,
+				84FBE60E222D8A0100F0C7E0 /* Status.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				84FED2192210A72100AA1F22 /* Accesstoken.swift in Sources */,
 				84EB7DC8220C91FE00C43AFB /* MainViewController.swift in Sources */,
 				84EB7DB8220C73A700C43AFB /* LoginViewController.swift in Sources */,
+				84FBE60F222D8A0100F0C7E0 /* Status.swift in Sources */,
 				840EE58B222D236400BB091B /* AddViewModel.swift in Sources */,
 				84EB7DCE220C9AAB00C43AFB /* LoginViewModel.swift in Sources */,
 				840EE587222D149000BB091B /* AddViewController.swift in Sources */,

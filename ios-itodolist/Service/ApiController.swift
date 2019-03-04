@@ -112,7 +112,7 @@ class ApiController {
             .disposed(by: disposeBag)
     }
     
-    func taskCreate(param:[String : Any], success: @escaping (Task) -> Void, failure: @escaping (String) -> Void) {
+    func taskCreate(param:[String : Any], success: @escaping (Status) -> Void, failure: @escaping (String) -> Void) {
         let headers = ["Content-Type": "application/json", "Authorization" : UserDefaults.standard.string(forKey: "accessToken")! as String]
         RxAlamofire.requestData(.post,
                                 ENDPOINT_URL+"v1/task/create",
@@ -121,8 +121,8 @@ class ApiController {
                                 headers: headers)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { resp, data in
-                let modelTask: Task = try! JSONDecoder().decode(Task.self, from: data)
-                success(modelTask)
+                let modelStatus: Status = try! JSONDecoder().decode(Status.self, from: data)
+                success(modelStatus)
             }, onError: { error in
                 failure("Error")
             })

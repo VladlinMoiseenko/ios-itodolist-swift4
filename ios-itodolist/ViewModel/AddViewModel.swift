@@ -1,29 +1,31 @@
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class AddViewModel {
     
     var apiController: ApiController?
     
-    func apiTaskCreate() {
+    func apiTaskCreate(_ title:String) {
         
         apiController = ApiController()
         
-        let _title: String = "new title"
-        let _id: String = "id"
+        //let title: String = "new title"
         
-//        let jsonParam = try? JSONEncoder().encode(TaskData(title: _title, id: _id))
-//        let param = try? JSONSerialization.jsonObject(with: jsonParam!, options: []) as? [String : Any]
+        let jsonParam = try? JSONEncoder().encode(TaskDataSave(title: title))
+        let param = try? JSONSerialization.jsonObject(with: jsonParam!, options: []) as? [String : Any]
         
-//        apiController?.authorize(param: param as! [String : Any], success: {modelAuthorize in
-//
-//            if modelAuthorize.status == 1 {
+        //print("param", param)
+        
+        apiController?.taskCreate(param: param as! [String : Any], success: {modelStatus in
+                print(modelStatus)
+//            if modelTask.status == 1 {
 //
 //            }
-//
-//        }, failure: { errorMsg in
-//            print(errorMsg)
-//        })
+
+        }, failure: { errorMsg in
+            print(errorMsg)
+        })
         
     }
     

@@ -20,25 +20,15 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func addAction(_ sender: Any) {
-        print(123)
-        
+
         addViewModel = AddViewModel()
         
-        self.addViewModel?.apiTaskCreate()
+        let title = self.titleTextField.text
         
-//        let name = nameTextField.text ?? ""
-//        let ageText = ageTextField.text ?? "20"
-//        let age = Int(ageText) ?? 20
-//        let message = messageTextField.text ?? ""
-//        let count = 0
-//        let isKeeping = keepingSwitch.isOn
-//        let cellViewModel = TableCellViewModel(name: name,
-//                                               age: age,
-//                                               message: message,
-//                                               count: count,
-//                                               isKeeping: isKeeping)
-//        DataSubject.AddedNotification.on(.next(cellViewModel))
-//        self.navigationController?.popViewController(animated: true)
+        self.addViewModel?.apiTaskCreate(title!)
+        
+        //DataSubject.AddedNotification.on(.next(addAction(<#T##sender: Any##Any#>)),
+        self.navigationController?.popViewController(animated: true)
 //        dismiss(animated: true, completion: nil)
     }
     
