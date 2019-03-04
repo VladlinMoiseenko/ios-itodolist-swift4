@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-import Action
+//import Action
 
 class MainViewController: UIViewController {
  
@@ -105,25 +105,20 @@ class MainViewController: UIViewController {
         self.viewModel = MainViewModel()
         self.viewModel?.apiLogout()
         
-        self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.doLogoutOnward), userInfo: nil, repeats: false)
-        
+        self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.doLogoutOnward), userInfo: nil, repeats: false)        
     }
     
     @objc func doLogoutOnward() {
-        
         if UserDefaults.standard.string(forKey: "accessToken") == "empty" {
-            
-            // 3 back to Login
+            // back to Login
             guard let vc = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() else {
                 return
             }
             self.navigationController?.pushViewController(vc, animated: true)
-            
         }
     }
     
     @objc func addButtonAction() {
-        print("Add is tapped")
         guard let vc = UIStoryboard(name: "Add", bundle: nil).instantiateInitialViewController() else {
             return
         }

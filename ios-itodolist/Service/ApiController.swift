@@ -112,6 +112,24 @@ class ApiController {
             .disposed(by: disposeBag)
     }
     
+    func taskCreate(param:[String : Any], success: @escaping (Task) -> Void, failure: @escaping (String) -> Void) {
+        let headers = ["Content-Type": "application/json", "Authorization" : UserDefaults.standard.string(forKey: "accessToken")! as String]
+        RxAlamofire.requestData(.post,
+                                ENDPOINT_URL+"v1/task/create",
+                                parameters: param,
+                                encoding: JSONEncoding.default,
+                                headers: headers)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { resp, data in
+                let modelTask: Task = try! JSONDecoder().decode(Task.self, from: data)
+                success(modelTask)
+            }, onError: { error in
+                failure("Error")
+            })
+            .disposed(by: disposeBag)
+    }  
+    
+    
 //    func getTasksData(success: @escaping ([TableCellViewModelTask]) -> Void, failure: @escaping (String) -> Void) {
 //        RxAlamofire.requestJSON(.get, "http://apitdlist.dev.vladlin.ru/v1/task")
 //            .observeOn(MainScheduler.instance)

@@ -49,7 +49,6 @@ class MainViewModel: ViewModelOutputs  {
         apiController = ApiController()
         
         apiController?.getTasks(success: {modelTaskData in
-            print(modelTaskData)
             self.itemPublisher.accept(modelTaskData)
         }, failure: { errorMsg in
             print(errorMsg)

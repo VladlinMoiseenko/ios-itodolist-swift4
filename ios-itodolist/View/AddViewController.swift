@@ -1,16 +1,17 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
-class AddDataViewController: UIViewController {
+class AddViewController: UIViewController {
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var ageTextField: UITextField!
-    @IBOutlet weak var messageTextField: UITextField!
-    @IBOutlet weak var keepingSwitch: UISwitch!
+    @IBOutlet weak var titleTextField: UITextField!
+    
+    var addViewModel: AddViewModel!
+    var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        titleTextField.text = "New task"
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +21,11 @@ class AddDataViewController: UIViewController {
     
     @IBAction func addAction(_ sender: Any) {
         print(123)
+        
+        addViewModel = AddViewModel()
+        
+        self.addViewModel?.apiTaskCreate()
+        
 //        let name = nameTextField.text ?? ""
 //        let ageText = ageTextField.text ?? "20"
 //        let age = Int(ageText) ?? 20

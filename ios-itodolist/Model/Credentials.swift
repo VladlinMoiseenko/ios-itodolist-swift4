@@ -7,6 +7,7 @@ struct Credentials: Codable {
         case username
         case password
     }
+    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(username, forKey: .username)

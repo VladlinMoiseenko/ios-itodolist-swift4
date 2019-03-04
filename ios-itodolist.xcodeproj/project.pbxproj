@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		8405A1C8220CA82C0014FFC7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A1C7220CA82C0014FFC7 /* MainViewModel.swift */; };
 		840B18AE222C525F007FC2A8 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B18AD222C525F007FC2A8 /* Logout.swift */; };
-		840EE587222D149000BB091B /* AddDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EE586222D149000BB091B /* AddDataViewController.swift */; };
+		840EE587222D149000BB091B /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EE586222D149000BB091B /* AddViewController.swift */; };
 		840EE589222D149A00BB091B /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840EE588222D149A00BB091B /* Add.storyboard */; };
+		840EE58B222D236400BB091B /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EE58A222D236400BB091B /* AddViewModel.swift */; };
 		84102FB2220F113F008D786E /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84102FB1220F113F008D786E /* Credentials.swift */; };
 		84118E05222858F400641FCE /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84118E04222858F400641FCE /* Root.storyboard */; };
 		8431DB0D2210281C006BDBBA /* Authorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431DB0C2210281C006BDBBA /* Authorize.swift */; };
@@ -36,8 +37,9 @@
 		0D29DBD7AC714B3593574853 /* Pods-ios-itodolist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-itodolist.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-itodolist/Pods-ios-itodolist.release.xcconfig"; sourceTree = "<group>"; };
 		8405A1C7220CA82C0014FFC7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		840B18AD222C525F007FC2A8 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
-		840EE586222D149000BB091B /* AddDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDataViewController.swift; sourceTree = "<group>"; };
+		840EE586222D149000BB091B /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		840EE588222D149A00BB091B /* Add.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
+		840EE58A222D236400BB091B /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		84102FB1220F113F008D786E /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		84118E04222858F400641FCE /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		8431DB0C2210281C006BDBBA /* Authorize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorize.swift; sourceTree = "<group>"; };
@@ -94,12 +96,12 @@
 		84118E02222857FE00641FCE /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				840EE588222D149A00BB091B /* Add.storyboard */,
 				84EB7DBE220C73AA00C43AFB /* LaunchScreen.storyboard */,
 				84118E04222858F400641FCE /* Root.storyboard */,
 				84EB7DB9220C73A700C43AFB /* Login.storyboard */,
 				84C8BD0E2228649400D24E9C /* Main.storyboard */,
 				8453F11C2227E9BD00E37627 /* TableViewCell.xib */,
+				840EE588222D149A00BB091B /* Add.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -148,11 +150,11 @@
 		84FA9675220DC8A0008C62E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				840EE586222D149000BB091B /* AddDataViewController.swift */,
 				84EB7DB7220C73A700C43AFB /* LoginViewController.swift */,
 				84EB7DC7220C91FE00C43AFB /* MainViewController.swift */,
 				8453F11E2227EB4800E37627 /* TableViewCellTask.swift */,
 				84BDADD3222824BC0090811D /* DataSubjectTask.swift */,
+				840EE586222D149000BB091B /* AddViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +164,7 @@
 			children = (
 				84EB7DCD220C9AAB00C43AFB /* LoginViewModel.swift */,
 				8405A1C7220CA82C0014FFC7 /* MainViewModel.swift */,
+				840EE58A222D236400BB091B /* AddViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -333,8 +336,9 @@
 				84FED2192210A72100AA1F22 /* Accesstoken.swift in Sources */,
 				84EB7DC8220C91FE00C43AFB /* MainViewController.swift in Sources */,
 				84EB7DB8220C73A700C43AFB /* LoginViewController.swift in Sources */,
+				840EE58B222D236400BB091B /* AddViewModel.swift in Sources */,
 				84EB7DCE220C9AAB00C43AFB /* LoginViewModel.swift in Sources */,
-				840EE587222D149000BB091B /* AddDataViewController.swift in Sources */,
+				840EE587222D149000BB091B /* AddViewController.swift in Sources */,
 				84EB7DCC220C979200C43AFB /* ApiController.swift in Sources */,
 				840B18AE222C525F007FC2A8 /* Logout.swift in Sources */,
 				8431DB0D2210281C006BDBBA /* Authorize.swift in Sources */,
