@@ -13,8 +13,8 @@
 		84118E05222858F400641FCE /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84118E04222858F400641FCE /* Root.storyboard */; };
 		8431DB0D2210281C006BDBBA /* Authorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431DB0C2210281C006BDBBA /* Authorize.swift */; };
 		8453F11D2227E9BD00E37627 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8453F11C2227E9BD00E37627 /* TableViewCell.xib */; };
-		8453F11F2227EB4800E37627 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453F11E2227EB4800E37627 /* TableViewCell.swift */; };
-		84BDADD4222824BC0090811D /* DataSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDADD3222824BC0090811D /* DataSubject.swift */; };
+		8453F11F2227EB4800E37627 /* TableViewCellTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453F11E2227EB4800E37627 /* TableViewCellTask.swift */; };
+		84BDADD4222824BC0090811D /* DataSubjectTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDADD3222824BC0090811D /* DataSubjectTask.swift */; };
 		84C8BD0F2228649400D24E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C8BD0E2228649400D24E9C /* Main.storyboard */; };
 		84EB7DB6220C73A700C43AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB7DB5220C73A700C43AFB /* AppDelegate.swift */; };
 		84EB7DB8220C73A700C43AFB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB7DB7220C73A700C43AFB /* LoginViewController.swift */; };
@@ -38,8 +38,8 @@
 		84118E04222858F400641FCE /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		8431DB0C2210281C006BDBBA /* Authorize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorize.swift; sourceTree = "<group>"; };
 		8453F11C2227E9BD00E37627 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		8453F11E2227EB4800E37627 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		84BDADD3222824BC0090811D /* DataSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSubject.swift; sourceTree = "<group>"; };
+		8453F11E2227EB4800E37627 /* TableViewCellTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTask.swift; sourceTree = "<group>"; };
+		84BDADD3222824BC0090811D /* DataSubjectTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSubjectTask.swift; sourceTree = "<group>"; };
 		84C8BD0E2228649400D24E9C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		84EB7DB2220C73A700C43AFB /* ios-itodolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-itodolist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB7DB5220C73A700C43AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,8 +145,8 @@
 			children = (
 				84EB7DB7220C73A700C43AFB /* LoginViewController.swift */,
 				84EB7DC7220C91FE00C43AFB /* MainViewController.swift */,
-				8453F11E2227EB4800E37627 /* TableViewCell.swift */,
-				84BDADD3222824BC0090811D /* DataSubject.swift */,
+				8453F11E2227EB4800E37627 /* TableViewCellTask.swift */,
+				84BDADD3222824BC0090811D /* DataSubjectTask.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,8 +330,8 @@
 				84EB7DCC220C979200C43AFB /* ApiController.swift in Sources */,
 				840B18AE222C525F007FC2A8 /* Logout.swift in Sources */,
 				8431DB0D2210281C006BDBBA /* Authorize.swift in Sources */,
-				84BDADD4222824BC0090811D /* DataSubject.swift in Sources */,
-				8453F11F2227EB4800E37627 /* TableViewCell.swift in Sources */,
+				84BDADD4222824BC0090811D /* DataSubjectTask.swift in Sources */,
+				8453F11F2227EB4800E37627 /* TableViewCellTask.swift in Sources */,
 				84EB7DCA220C974000C43AFB /* Task.swift in Sources */,
 				84EB7DB6220C73A700C43AFB /* AppDelegate.swift in Sources */,
 				84102FB2220F113F008D786E /* Credentials.swift in Sources */,

@@ -1,4 +1,3 @@
-
 import UIKit
 import RxSwift
 import RxCocoa
@@ -10,21 +9,24 @@ enum KeepingState {
     
 }
 
-struct TableCellViewModel {
+struct TableCellViewModelTask {
     let id = UUID().uuidString
     let idtask: String
     var title: String
+    var content: String
     var count: Int
     
     init() {
         self.idtask = ""
         self.title = ""
+        self.content = ""
         self.count = 0
     }
     
     init(json: [String: Any]) {
         idtask = json["id"] as? String ?? ""
         title = json["title"] as? String ?? ""
+        content = json["content"] as? String ?? ""
         count = 0
     }
     
@@ -34,11 +36,9 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    //@IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
-    //@IBOutlet weak var keepingStateView: UIView!
     
-    var viewModel: TableCellViewModel!
+    var viewModel: TableCellViewModelTask!
     var disposeBag = DisposeBag()
 
     override func awakeFromNib() {
@@ -51,12 +51,12 @@ class TableViewCell: UITableViewCell {
         self.disposeBag = DisposeBag()
     }
     
-    public func configure(viewModel: TableCellViewModel) {
+    public func configure(viewModel: TableCellViewModelTask) {
         self.viewModel = viewModel
         updateUI(viewModel: viewModel)
     }
     
-    private func updateUI(viewModel: TableCellViewModel){
+    private func updateUI(viewModel: TableCellViewModelTask){
         nameLabel.text = viewModel.title
         ageLabel.text = viewModel.idtask
         counterLabel.text = "\(viewModel.count)"

@@ -8,7 +8,7 @@ import RxAlamofire
 
 protocol ViewModelOutputs {
     var items: BehaviorRelay<[SectionModel]> { get }
-    func tapped(cellViewModel: TableCellViewModel)
+    func tapped(cellViewModel: TableCellViewModelTask)
 }
 
 class MainViewModel: ViewModelOutputs  {
@@ -17,8 +17,8 @@ class MainViewModel: ViewModelOutputs  {
     
     var items = BehaviorRelay<[SectionModel]>(value: [])
     
-    private let viewModels = BehaviorRelay<[TableCellViewModel]>(value: [])
-    private let itemPublisher = PublishRelay<[TableCellViewModel]>()
+    private let viewModels = BehaviorRelay<[TableCellViewModelTask]>(value: [])
+    private let itemPublisher = PublishRelay<[TableCellViewModelTask]>()
     
     private var disposeBag: DisposeBag!
     
@@ -27,9 +27,9 @@ class MainViewModel: ViewModelOutputs  {
         setItems()
     }
     
-    func tapped(cellViewModel: TableCellViewModel) {
+    func tapped(cellViewModel: TableCellViewModelTask) {
         
-        let nextItems = viewModels.value.enumerated().map { (offset, item) -> TableCellViewModel in
+        let nextItems = viewModels.value.enumerated().map { (offset, item) -> TableCellViewModelTask in
             if item.id != cellViewModel.id {
                 return item
             }
@@ -49,6 +49,7 @@ class MainViewModel: ViewModelOutputs  {
         apiController = ApiController()
         
         apiController?.getTasks(success: {modelTaskData in
+            print(modelTaskData)
             self.itemPublisher.accept(modelTaskData)
         }, failure: { errorMsg in
             print(errorMsg)
@@ -90,7 +91,7 @@ extension MainViewModel {
         }).disposed(by: disposeBag)
     }
     
-    private func updateItem(viewModel: TableCellViewModel) {
+    private func updateItem(viewModel: TableCellViewModelTask) {
         var preItems = viewModels.value
         preItems.append(viewModel)
         itemPublisher.accept(preItems)
@@ -111,7 +112,7 @@ enum SectionID: String, IdentifiableType {
 
 // SectionItem
 struct SectionItem: IdentifiableType, Equatable {
-    var viewModel: TableCellViewModel
+    var viewModel: TableCellViewModelTask
     
     var identity: String {
         return viewModel.id

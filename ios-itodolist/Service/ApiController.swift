@@ -65,7 +65,7 @@ class ApiController {
     }
     
     
-//    func getTasks(success: @escaping ([TableCellViewModel]) -> Void, failure: @escaping (String) -> Void) {
+//    func getTasks(success: @escaping ([TableCellViewModelTask]) -> Void, failure: @escaping (String) -> Void) {
 //        RxAlamofire.requestData(.get,
 //                                ENDPOINT_URL+"v1/task",
 //                                encoding: JSONEncoding.default,
@@ -81,7 +81,7 @@ class ApiController {
 //            .disposed(by: disposeBag)
 //    }
     
-    func getTasks(success: @escaping ([TableCellViewModel]) -> Void, failure: @escaping (String) -> Void) {
+    func getTasks(success: @escaping ([TableCellViewModelTask]) -> Void, failure: @escaping (String) -> Void) {
         let accessToken:String = UserDefaults.standard.string(forKey: "accessToken")!
         let headers = ["Content-Type": "application/json", "Authorization" : accessToken]
         RxAlamofire.requestJSON(.get,
@@ -96,11 +96,11 @@ class ApiController {
                 return jsonDict
             }
             .subscribe(onNext: { jsonDict in
-                var items: [TableCellViewModel] = []
+                var items: [TableCellViewModelTask] = []
                 if let array = jsonDict["data"] as? [Any] {
                     for object in array {
                         if let ob = object as? [String: Any] {
-                            let dmodel = TableCellViewModel(json: ob)
+                            let dmodel = TableCellViewModelTask(json: ob)
                             items.append(dmodel)
                         }
                     }
@@ -112,7 +112,7 @@ class ApiController {
             .disposed(by: disposeBag)
     }
     
-//    func getTasksData(success: @escaping ([TableCellViewModel]) -> Void, failure: @escaping (String) -> Void) {
+//    func getTasksData(success: @escaping ([TableCellViewModelTask]) -> Void, failure: @escaping (String) -> Void) {
 //        RxAlamofire.requestJSON(.get, "http://apitdlist.dev.vladlin.ru/v1/task")
 //            .observeOn(MainScheduler.instance)
 //            .map { (r, json) -> [String: Any] in
@@ -123,12 +123,12 @@ class ApiController {
 //            }
 //            .subscribe(onNext: { jsonDict in
 //
-//                var items: [TableCellViewModel] = []
+//                var items: [TableCellViewModelTask] = []
 //
 //                if let array = jsonDict["data"] as? [Any] {
 //                    for object in array {
 //                        if let ob = object as? [String: Any] {
-//                            let dmodel = TableCellViewModel(json: ob)
+//                            let dmodel = TableCellViewModelTask(json: ob)
 //
 //                            items.append(dmodel)
 //
