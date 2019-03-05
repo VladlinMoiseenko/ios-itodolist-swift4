@@ -62,9 +62,14 @@
                                     <constraint firstAttribute="height" constant="200" id="4nw-Sg-d1z"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mSW-qo-NPU">
+                                <rect key="frame" x="177.5" y="571" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="mSW-qo-NPU" firstAttribute="centerX" secondItem="1v5-rK-54K" secondAttribute="centerX" id="1NN-p4-1Lo"/>
+                            <constraint firstItem="bid-NP-9N2" firstAttribute="bottom" secondItem="mSW-qo-NPU" secondAttribute="bottom" constant="32" id="Hbn-bj-Ne2"/>
                             <constraint firstItem="bid-NP-9N2" firstAttribute="trailing" secondItem="vNd-9E-rD7" secondAttribute="trailing" id="e2N-YC-YVx"/>
                             <constraint firstItem="vNd-9E-rD7" firstAttribute="leading" secondItem="bid-NP-9N2" secondAttribute="leading" id="jxn-RC-y8F"/>
                             <constraint firstItem="vNd-9E-rD7" firstAttribute="top" secondItem="bid-NP-9N2" secondAttribute="top" id="yh0-Mk-3Ra"/>
@@ -78,15 +83,12 @@
                                 <action selector="closeAction:" destination="KNf-QH-hgN" id="091-Tw-B9E"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="rfe-io-kN5">
-                            <connections>
-                                <action selector="addAction:" destination="KNf-QH-hgN" id="9Hx-Pd-UWZ"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="rfe-io-kN5"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="mSW-qo-NPU" id="xw6-NY-FIB"/>
                         <outlet property="titleTextField" destination="ovp-ex-EWs" id="Uoy-Oe-BO2"/>
                     </connections>
                 </viewController>
