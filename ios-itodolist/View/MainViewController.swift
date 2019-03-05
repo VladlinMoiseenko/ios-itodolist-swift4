@@ -2,8 +2,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-//import Action
 
+//class MainViewController: UIViewController {
 class MainViewController: UIViewController, UITableViewDelegate {
  
     @IBOutlet weak var tableView: UITableView!
@@ -12,18 +12,20 @@ class MainViewController: UIViewController, UITableViewDelegate {
     var disposeBag = DisposeBag()
     var dataSources: RxTableViewSectionedAnimatedDataSource<SectionModel>!
     var timer = Timer()
-    
+ 
+ 
     func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         return action == MenuAction.Copy.selector() || action == MenuAction.Custom.selector()
     }
-    
+
     func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
         //You can handle standard actions here, but custom actions never trigger this. It still needs to be present for the menu to display, though.
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

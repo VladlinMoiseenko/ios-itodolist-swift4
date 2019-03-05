@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func addCustomMenuItems() {
         let newMenuItem = UIMenuItem(title: "Fo My Item", action: MenuAction.Custom.selector())
-        
+
         let menuController = UIMenuController.shared
         var newItems = menuController.menuItems ?? [UIMenuItem]()
         newItems.append(newMenuItem)
