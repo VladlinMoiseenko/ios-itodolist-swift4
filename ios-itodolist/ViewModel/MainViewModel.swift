@@ -35,6 +35,7 @@ class MainViewModel: ViewModelOutputs  {
             }
             
             print("tap idtask:", item.idtask)
+
             
             var newViewModel = item
             newViewModel.count += 1

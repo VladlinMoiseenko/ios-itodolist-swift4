@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8405A1C8220CA82C0014FFC7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A1C7220CA82C0014FFC7 /* MainViewModel.swift */; };
+		84068D12222EB13500C16580 /* MenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84068D11222EB13500C16580 /* MenuAction.swift */; };
 		840B18AE222C525F007FC2A8 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B18AD222C525F007FC2A8 /* Logout.swift */; };
 		840EE587222D149000BB091B /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EE586222D149000BB091B /* AddViewController.swift */; };
 		840EE589222D149A00BB091B /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840EE588222D149A00BB091B /* Add.storyboard */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		0D29DBD7AC714B3593574853 /* Pods-ios-itodolist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-itodolist.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-itodolist/Pods-ios-itodolist.release.xcconfig"; sourceTree = "<group>"; };
 		8405A1C7220CA82C0014FFC7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		84068D11222EB13500C16580 /* MenuAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAction.swift; sourceTree = "<group>"; };
 		840B18AD222C525F007FC2A8 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
 		840EE586222D149000BB091B /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		840EE588222D149A00BB091B /* Add.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				8453F11E2227EB4800E37627 /* TableViewCellTask.swift */,
 				84BDADD3222824BC0090811D /* DataSubjectTask.swift */,
 				840EE586222D149000BB091B /* AddViewController.swift */,
+				84068D11222EB13500C16580 /* MenuAction.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84FED2192210A72100AA1F22 /* Accesstoken.swift in Sources */,
+				84068D12222EB13500C16580 /* MenuAction.swift in Sources */,
 				84EB7DC8220C91FE00C43AFB /* MainViewController.swift in Sources */,
 				84EB7DB8220C73A700C43AFB /* LoginViewController.swift in Sources */,
 				84FBE60F222D8A0100F0C7E0 /* Status.swift in Sources */,
