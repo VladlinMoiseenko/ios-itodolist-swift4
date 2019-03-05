@@ -6,6 +6,7 @@ import Action
 class AddViewController: UIViewController {
     
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var contentTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var addViewModel: AddViewModel!
@@ -16,6 +17,7 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleTextField.text = "New task"
+        contentTextField.text = "Content"
         
         self.navigationItem.rightBarButtonItem?.rx.action = CocoaAction {
             self.activityIndicator.startAnimating()
@@ -23,8 +25,9 @@ class AddViewController: UIViewController {
             self.addViewModel = AddViewModel()
             
             let title = self.titleTextField.text
+            let content = self.contentTextField.text
             
-            self.addViewModel?.apiTaskCreate(title!)
+            self.addViewModel?.apiTaskCreate(title!, content!)
             
             self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.doOnward), userInfo: nil, repeats: false)
 
