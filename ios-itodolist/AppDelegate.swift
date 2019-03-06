@@ -13,11 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func addCustomMenuItems() {
-        let newMenuItem = UIMenuItem(title: "Fo My Item", action: MenuAction.Custom.selector())
-
+        let newMenuItem = UIMenuItem(title: "Delete", action: MenuAction.Custom.selector())
+        let newMenuEdit = UIMenuItem(title: "Edit", action: MenuAction.Edit.selector())
+        
         let menuController = UIMenuController.shared
         var newItems = menuController.menuItems ?? [UIMenuItem]()
         newItems.append(newMenuItem)
+        newItems.append(newMenuEdit)
         menuController.menuItems = newItems
     }
     
