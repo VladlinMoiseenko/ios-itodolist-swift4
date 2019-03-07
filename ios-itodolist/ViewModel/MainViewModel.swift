@@ -36,7 +36,6 @@ class MainViewModel: ViewModelOutputs  {
             
             print("tap idtask:", item.idtask)
 
-            
             var newViewModel = item
             newViewModel.count += 1
             return newViewModel
@@ -44,6 +43,14 @@ class MainViewModel: ViewModelOutputs  {
         
         itemPublisher.accept(nextItems)
     }
+    
+//    private func setupGestures() {
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+//        tapGesture.numberOfTapsRequired = 1
+//        //button.addGestureRecognizer(tapGesture)
+//    }
+    
+    
     
     private func setItems() {
         

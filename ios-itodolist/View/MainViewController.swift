@@ -3,8 +3,8 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-//class MainViewController: UIViewController {
-class MainViewController: UIViewController, UITableViewDelegate {
+class MainViewController: UIViewController {
+//class MainViewController: UIViewController, UITableViewDelegate {
  
     @IBOutlet weak var tableView: UITableView!
     
@@ -14,18 +14,18 @@ class MainViewController: UIViewController, UITableViewDelegate {
     var timer = Timer()
  
  
-    func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        //return action == MenuAction.Copy.selector() || action == MenuAction.Custom.selector()
-        return action == MenuAction.Custom.selector() || action == MenuAction.Edit.selector()
-    }
-
-    func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
-        //You can handle standard actions here, but custom actions never trigger this. It still needs to be present for the menu to display, though.
-    }
+//    func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//
+//    func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+//        //return action == MenuAction.Copy.selector() || action == MenuAction.Custom.selector()
+//        return action == MenuAction.Custom.selector() || action == MenuAction.Edit.selector()
+//    }
+//
+//    func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+//        //You can handle standard actions here, but custom actions never trigger this. It still needs to be present for the menu to display, though.
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +97,21 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         tableView.rx.modelSelected(SectionItem.self)
             .subscribe(onNext: { [weak self] item in
-                self?.viewModel.tapped(cellViewModel: item.viewModel)
+                //self?.viewModel.tapped(cellViewModel: item.viewModel)
+                print(1)
+                guard let popVC = UIStoryboard(name: "Popover", bundle: nil).instantiateInitialViewController() else {
+                    print(2)
+                    return
+                }
+               popVC.modalPresentationStyle = .popover
+               let popOverVC = popVC.popoverPresentationController
+               popOverVC!.delegate = self
+               popOverVC!.sourceView = self!.tableView
+               popOverVC!.sourceRect = CGRect(x: 250, y: 250, width: 0, height: 0)
+               popVC.preferredContentSize = CGSize(width: 200, height: 200)
+
+               self?.present(popVC, animated: true)
+                
             }).disposed(by: disposeBag)
         
     }
@@ -137,6 +151,14 @@ class MainViewController: UIViewController, UITableViewDelegate {
             return
         }
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+extension MainViewController: UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
     
 }
