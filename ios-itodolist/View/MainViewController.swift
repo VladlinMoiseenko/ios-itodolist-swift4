@@ -87,6 +87,8 @@ class MainViewController: UIViewController {
                 let storyboard = UIStoryboard(name: "Edit", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "Edit") as? EditViewController
                 vc!.idtask = item.viewModel.idtask
+                vc!.titletask = item.viewModel.title
+                vc!.content = item.viewModel.content
                 self!.navigationController?.pushViewController(vc!, animated: true)
                 
             }).disposed(by: disposeBag)

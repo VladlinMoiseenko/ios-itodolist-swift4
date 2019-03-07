@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Task-->
         <scene sceneID="bc8-aE-dNx">
             <objects>
                 <viewController id="KNf-QH-hgN" customClass="AddViewController" customModule="ios_itodolist" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,7 +77,7 @@
                         <viewLayoutGuide key="safeArea" id="bid-NP-9N2"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="WBO-gI-OLZ">
+                    <navigationItem key="navigationItem" title="Task" id="WBO-gI-OLZ">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="zQK-G6-gBE">
                             <connections>
                                 <action selector="closeAction:" destination="KNf-QH-hgN" id="091-Tw-B9E"/>
