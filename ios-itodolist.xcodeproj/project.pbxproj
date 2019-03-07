@@ -13,6 +13,8 @@
 		840EE587222D149000BB091B /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EE586222D149000BB091B /* AddViewController.swift */; };
 		840EE589222D149A00BB091B /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840EE588222D149A00BB091B /* Add.storyboard */; };
 		840EE58B222D236400BB091B /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EE58A222D236400BB091B /* AddViewModel.swift */; };
+		840F4B7122314EB5002AB734 /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840F4B7022314EB5002AB734 /* Edit.storyboard */; };
+		840F4B7322314F1F002AB734 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F4B7222314F1F002AB734 /* EditViewController.swift */; };
 		84102FB2220F113F008D786E /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84102FB1220F113F008D786E /* Credentials.swift */; };
 		84118E05222858F400641FCE /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84118E04222858F400641FCE /* Root.storyboard */; };
 		8431DB0D2210281C006BDBBA /* Authorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431DB0C2210281C006BDBBA /* Authorize.swift */; };
@@ -45,6 +47,8 @@
 		840EE586222D149000BB091B /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		840EE588222D149A00BB091B /* Add.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
 		840EE58A222D236400BB091B /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
+		840F4B7022314EB5002AB734 /* Edit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
+		840F4B7222314F1F002AB734 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		84102FB1220F113F008D786E /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		84118E04222858F400641FCE /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		8431DB0C2210281C006BDBBA /* Authorize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorize.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 				8453F11C2227E9BD00E37627 /* TableViewCell.xib */,
 				840EE588222D149A00BB091B /* Add.storyboard */,
 				849E4A3B223108880032B20C /* Popover.storyboard */,
+				840F4B7022314EB5002AB734 /* Edit.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				840EE586222D149000BB091B /* AddViewController.swift */,
 				84068D11222EB13500C16580 /* MenuAction.swift */,
 				849E4A39223101650032B20C /* TableViewController.swift */,
+				840F4B7222314F1F002AB734 /* EditViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				8453F11D2227E9BD00E37627 /* TableViewCell.xib in Resources */,
 				849E4A3C223108880032B20C /* Popover.storyboard in Resources */,
 				84EB7DC0220C73AA00C43AFB /* LaunchScreen.storyboard in Resources */,
+				840F4B7122314EB5002AB734 /* Edit.storyboard in Resources */,
 				84EB7DBD220C73AA00C43AFB /* Assets.xcassets in Resources */,
 				840EE589222D149A00BB091B /* Add.storyboard in Resources */,
 				84EB7DBB220C73A700C43AFB /* Login.storyboard in Resources */,
@@ -350,6 +357,7 @@
 				84068D12222EB13500C16580 /* MenuAction.swift in Sources */,
 				84EB7DC8220C91FE00C43AFB /* MainViewController.swift in Sources */,
 				84EB7DB8220C73A700C43AFB /* LoginViewController.swift in Sources */,
+				840F4B7322314F1F002AB734 /* EditViewController.swift in Sources */,
 				84FBE60F222D8A0100F0C7E0 /* Status.swift in Sources */,
 				840EE58B222D236400BB091B /* AddViewModel.swift in Sources */,
 				84EB7DCE220C9AAB00C43AFB /* LoginViewModel.swift in Sources */,

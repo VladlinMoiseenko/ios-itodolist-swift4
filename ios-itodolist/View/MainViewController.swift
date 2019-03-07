@@ -98,9 +98,25 @@ class MainViewController: UIViewController {
         tableView.rx.modelSelected(SectionItem.self)
             .subscribe(onNext: { [weak self] item in
                 //self?.viewModel.tapped(cellViewModel: item.viewModel)
-                print(1)
+                print("f", item.viewModel.idtask)
+                
+//                guard let vc = UIStoryboard(name: "Edit", bundle: nil).instantiateInitialViewController() else {
+//                    return
+//                }
+                
+//                let vc = self!.storyboard!.instantiateViewControllerWithIdentifier("Edit") as! MainViewController
+//                vc.variable = item.viewModel.idtask
+//                self.presentViewController(vc, animated: true, completion: nil)
+
+//                let vc = EditViewController()
+//                vc.variable = item.viewModel.idtask
+//                //vc.delegate = self
+//                self?.navigationController?.pushViewController(vc, animated: true)
+                
+                //vc.variable = item.viewModel.idtask
+                //self?.navigationController?.pushViewController(vc, animated: true)
+                
                 guard let popVC = UIStoryboard(name: "Popover", bundle: nil).instantiateInitialViewController() else {
-                    print(2)
                     return
                 }
                popVC.modalPresentationStyle = .popover
@@ -109,7 +125,6 @@ class MainViewController: UIViewController {
                popOverVC!.sourceView = self!.tableView
                popOverVC!.sourceRect = CGRect(x: 250, y: 250, width: 0, height: 0)
                popVC.preferredContentSize = CGSize(width: 200, height: 200)
-
                self?.present(popVC, animated: true)
                 
             }).disposed(by: disposeBag)
