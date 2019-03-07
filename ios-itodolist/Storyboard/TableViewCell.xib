@@ -47,18 +47,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mt0-wV-Bfl">
-                                <rect key="frame" x="255" y="66" width="45" height="30"/>
-                                <state key="normal" title="Delete"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="303-Gg-nUf" firstAttribute="leading" secondItem="5wu-wF-T37" secondAttribute="leading" id="1cD-ke-Kf6"/>
                             <constraint firstItem="303-Gg-nUf" firstAttribute="top" secondItem="Je0-jv-TkU" secondAttribute="bottom" constant="6" id="5fo-Gi-OJw"/>
                             <constraint firstItem="Je0-jv-TkU" firstAttribute="top" secondItem="5wu-wF-T37" secondAttribute="top" id="KUU-6a-ACQ"/>
-                            <constraint firstAttribute="bottom" secondItem="Mt0-wV-Bfl" secondAttribute="bottom" constant="1.5" id="dKn-RZ-o4y"/>
-                            <constraint firstAttribute="trailing" secondItem="Mt0-wV-Bfl" secondAttribute="trailing" id="ivL-GC-WD6"/>
                             <constraint firstItem="Je0-jv-TkU" firstAttribute="leading" secondItem="5wu-wF-T37" secondAttribute="leading" id="kZw-A8-hOA"/>
                         </constraints>
                     </view>

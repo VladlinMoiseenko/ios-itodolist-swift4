@@ -41,14 +41,6 @@ class TableViewCell: UITableViewCell {
     var viewModel: TableCellViewModelTask!
     var disposeBag = DisposeBag()
 
-    //
-    @objc func myItemAction(_ sender:AnyObject?){
-        print("Delete")
-    }
-    @objc func Edit(_ sender:AnyObject?){
-        print("Edit")
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
