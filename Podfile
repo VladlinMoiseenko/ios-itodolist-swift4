@@ -7,7 +7,6 @@ target 'ios-itodolist' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxAlamofire'
-  pod 'SnapKit'
   pod 'RxDataSources'
   pod 'Action'
   pod 'RxOptional'
