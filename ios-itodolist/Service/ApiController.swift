@@ -129,6 +129,41 @@ class ApiController {
             .disposed(by: disposeBag)
     }  
     
+    func taskUpdate(idtask:String, param:[String : Any], success: @escaping (Status) -> Void, failure: @escaping (String) -> Void) {
+        let headers = ["Content-Type": "application/json", "Authorization" : UserDefaults.standard.string(forKey: "accessToken")! as String]
+        RxAlamofire.requestData(.put,
+                                ENDPOINT_URL+"v1/task/update/"+idtask,
+                                parameters: param,
+                                encoding: JSONEncoding.default,
+                                headers: headers)
+            //.debug()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { resp, data in
+                let modelStatus: Status = try! JSONDecoder().decode(Status.self, from: data)
+                success(modelStatus)
+            }, onError: { error in
+                failure("Error")
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func taskDelete(idtask:String, success: @escaping (Status) -> Void, failure: @escaping (String) -> Void) {
+        let headers = ["Content-Type": "application/json", "Authorization" : UserDefaults.standard.string(forKey: "accessToken")! as String]
+        RxAlamofire.requestData(.delete,
+                                ENDPOINT_URL+"v1/task/delete/"+idtask,
+                                encoding: JSONEncoding.default,
+                                headers: headers)
+            //.debug()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { resp, data in
+                let modelStatus: Status = try! JSONDecoder().decode(Status.self, from: data)
+                success(modelStatus)
+            }, onError: { error in
+                failure("Error")
+            })
+            .disposed(by: disposeBag)
+    }
+    
     
 //    func getTasksData(success: @escaping ([TableCellViewModelTask]) -> Void, failure: @escaping (String) -> Void) {
 //        RxAlamofire.requestJSON(.get, "http://apitdlist.dev.vladlin.ru/v1/task")

@@ -65,14 +65,22 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Upn-MB-kVK">
                                 <rect key="frame" x="177.5" y="571" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVN-ln-cvd">
+                                <rect key="frame" x="148.5" y="507" width="78" height="30"/>
+                                <state key="normal" title="Delete task">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eV9-0N-W9P" firstAttribute="trailing" secondItem="Eix-pd-8g6" secondAttribute="trailing" id="BTs-xE-Krm"/>
                             <constraint firstItem="Upn-MB-kVK" firstAttribute="centerX" secondItem="bRG-HD-X6c" secondAttribute="centerX" id="DUk-pW-Drg"/>
                             <constraint firstItem="eV9-0N-W9P" firstAttribute="bottom" secondItem="Upn-MB-kVK" secondAttribute="bottom" constant="32" id="IAI-D4-Ogd"/>
+                            <constraint firstItem="HVN-ln-cvd" firstAttribute="centerX" secondItem="bRG-HD-X6c" secondAttribute="centerX" id="SfQ-nF-H8J"/>
                             <constraint firstItem="Eix-pd-8g6" firstAttribute="top" secondItem="eV9-0N-W9P" secondAttribute="top" id="XP9-7L-WN5"/>
                             <constraint firstItem="Eix-pd-8g6" firstAttribute="leading" secondItem="eV9-0N-W9P" secondAttribute="leading" id="ZQo-eh-9WI"/>
+                            <constraint firstItem="Upn-MB-kVK" firstAttribute="top" secondItem="HVN-ln-cvd" secondAttribute="bottom" constant="34" id="ovA-S3-Y9X"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eV9-0N-W9P"/>
                     </view>
@@ -90,6 +98,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="Upn-MB-kVK" id="TZT-ca-ekM"/>
                         <outlet property="contentTextField" destination="ClV-mz-Gk0" id="IWs-iV-675"/>
+                        <outlet property="deleteButton" destination="HVN-ln-cvd" id="TXc-4U-K91"/>
                         <outlet property="titleTextField" destination="xxh-ax-VDv" id="0xM-fH-EVC"/>
                     </connections>
                 </viewController>

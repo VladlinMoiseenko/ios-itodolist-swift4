@@ -19,6 +19,7 @@
 		8431DB0D2210281C006BDBBA /* Authorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431DB0C2210281C006BDBBA /* Authorize.swift */; };
 		8453F11D2227E9BD00E37627 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8453F11C2227E9BD00E37627 /* TableViewCell.xib */; };
 		8453F11F2227EB4800E37627 /* TableViewCellTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453F11E2227EB4800E37627 /* TableViewCellTask.swift */; };
+		845C8DCA22324A07003267AF /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C8DC922324A07003267AF /* EditViewModel.swift */; };
 		84BDADD4222824BC0090811D /* DataSubjectTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDADD3222824BC0090811D /* DataSubjectTask.swift */; };
 		84C8BD0F2228649400D24E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C8BD0E2228649400D24E9C /* Main.storyboard */; };
 		84EB7DB6220C73A700C43AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB7DB5220C73A700C43AFB /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		8431DB0C2210281C006BDBBA /* Authorize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorize.swift; sourceTree = "<group>"; };
 		8453F11C2227E9BD00E37627 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		8453F11E2227EB4800E37627 /* TableViewCellTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTask.swift; sourceTree = "<group>"; };
+		845C8DC922324A07003267AF /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		84BDADD3222824BC0090811D /* DataSubjectTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSubjectTask.swift; sourceTree = "<group>"; };
 		84C8BD0E2228649400D24E9C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		84EB7DB2220C73A700C43AFB /* ios-itodolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-itodolist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +175,7 @@
 				84EB7DCD220C9AAB00C43AFB /* LoginViewModel.swift */,
 				8405A1C7220CA82C0014FFC7 /* MainViewModel.swift */,
 				840EE58A222D236400BB091B /* AddViewModel.swift */,
+				845C8DC922324A07003267AF /* EditViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				840F4B7322314F1F002AB734 /* EditViewController.swift in Sources */,
 				84FBE60F222D8A0100F0C7E0 /* Status.swift in Sources */,
 				840EE58B222D236400BB091B /* AddViewModel.swift in Sources */,
+				845C8DCA22324A07003267AF /* EditViewModel.swift in Sources */,
 				84EB7DCE220C9AAB00C43AFB /* LoginViewModel.swift in Sources */,
 				840EE587222D149000BB091B /* AddViewController.swift in Sources */,
 				84EB7DCC220C979200C43AFB /* ApiController.swift in Sources */,

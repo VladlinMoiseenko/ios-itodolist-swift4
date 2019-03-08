@@ -8,12 +8,13 @@ class EditViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var idtask: String = "empty"
     var titletask: String = "empty"
     var content: String = "empty"
     
-    //var editViewModel: EditViewModel!
+    var editViewModel: EditViewModel!
     var disposeBag = DisposeBag()
     
     var timer = Timer()
@@ -24,20 +25,30 @@ class EditViewController: UIViewController {
         titleTextField.text = titletask
         contentTextField.text = content
         
-        print("idtask:", idtask)
-        
         self.navigationItem.rightBarButtonItem?.rx.action = CocoaAction {
             self.activityIndicator.startAnimating()
             
-            //self.editViewModel = EditViewModel()
+            self.editViewModel = EditViewModel()
             
             let title = self.titleTextField.text
             let content = self.contentTextField.text
             
-            //self.editViewModel?.apiTaskUpdate(idtask!, title!, content!)
+            self.editViewModel?.apiTaskUpdate(self.idtask, title!, content!)
             
             self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.doOnward), userInfo: nil, repeats: false)
             
+            return Observable.empty().delaySubscription(2, scheduler: MainScheduler.instance)
+        }
+        
+        deleteButton.rx.action = CocoaAction {
+            self.activityIndicator.startAnimating()
+
+            self.editViewModel = EditViewModel()
+
+            self.editViewModel?.apiTaskDelete(self.idtask)
+
+            self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.doOnward), userInfo: nil, repeats: false)
+
             return Observable.empty().delaySubscription(2, scheduler: MainScheduler.instance)
         }
     }
@@ -53,12 +64,10 @@ class EditViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func closeAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-        //        dismiss(animated: true, completion: nil)
     }
     
 }
