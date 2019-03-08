@@ -60,20 +60,20 @@ struct TaskData: Codable {
         try container.encode(title, forKey: .title)
     }
     
-    //    init(from decoder: Decoder) throws {
-    //        let container = try decoder.container(keyedBy: CodingKeys.self)
-    //        self.id = try! container.decode(String.self, forKey: .id)
-    //        self.title = try! container.decode(String.self, forKey: .title)
-    //    }
-    //
-    //    init() {
-    //        self.id = ""
-    //        self.title = ""
-    //    }
-    
-    //    init(json: [String: Any]) {
-    //        id = json["id"] as? String ?? ""
-    //        title = json["title"] as? String ?? ""
-    //    }
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try! container.decode(String.self, forKey: .id)
+        self.title = try! container.decode(String.self, forKey: .title)
+    }
+
+    init() {
+        self.id = ""
+        self.title = ""
+    }
+
+    init(json: [String: Any]) {
+        id = json["id"] as? String ?? ""
+        title = json["title"] as? String ?? ""
+    }
     
 }

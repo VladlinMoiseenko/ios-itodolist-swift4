@@ -29,28 +29,20 @@ class MainViewModel: ViewModelOutputs  {
     
     func tapped(cellViewModel: TableCellViewModelTask) {
         
-        let nextItems = viewModels.value.enumerated().map { (offset, item) -> TableCellViewModelTask in
-            if item.id != cellViewModel.id {
-                return item
-            }
-            
-            print("tap idtask:", item.idtask)
-
-            var newViewModel = item
-            newViewModel.count += 1
-            return newViewModel
-        }
-        
-        itemPublisher.accept(nextItems)
+//        let nextItems = viewModels.value.enumerated().map { (offset, item) -> TableCellViewModelTask in
+//            if item.id != cellViewModel.id {
+//                return item
+//            }
+//
+//            print("tap idtask:", item.idtask)
+//
+//            var newViewModel = item
+//            newViewModel.count += 1
+//            return newViewModel
+//        }
+//
+//        itemPublisher.accept(nextItems)
     }
-    
-//    private func setupGestures() {
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
-//        tapGesture.numberOfTapsRequired = 1
-//        //button.addGestureRecognizer(tapGesture)
-//    }
-    
-    
     
     private func setItems() {
         
@@ -125,12 +117,8 @@ struct SectionItem: IdentifiableType, Equatable {
         return viewModel.id
     }
     
-    var itemCount: Int {
-        return viewModel.count
-    }
-    
     static func == (lhs: SectionItem, rhs: SectionItem) -> Bool {
-        return lhs.identity == rhs.identity && lhs.viewModel.count == rhs.viewModel.count
+        return lhs.identity == rhs.identity
     }
     
 }

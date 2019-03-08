@@ -14,20 +14,17 @@ struct TableCellViewModelTask {
     let idtask: String
     var title: String
     var content: String
-    var count: Int
     
     init() {
         self.idtask = ""
         self.title = ""
         self.content = ""
-        self.count = 0
     }
     
     init(json: [String: Any]) {
         idtask = json["id"] as? String ?? ""
         title = json["title"] as? String ?? ""
         content = json["content"] as? String ?? ""
-        count = 0
     }
     
 }
@@ -36,14 +33,12 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var counterLabel: UILabel!
     
     var viewModel: TableCellViewModelTask!
     var disposeBag = DisposeBag()
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func prepareForReuse() {
@@ -59,7 +54,6 @@ class TableViewCell: UITableViewCell {
     private func updateUI(viewModel: TableCellViewModelTask){
         titleLabel.text = viewModel.title
         contentLabel.text = viewModel.content
-        counterLabel.text = "\(viewModel.count)"
     }
     
 }

@@ -42,7 +42,6 @@ class MainViewController: UIViewController {
         dataSources = RxTableViewSectionedAnimatedDataSource<SectionModel>
             .init(animationConfiguration: animationConfiguration,
                   decideViewTransition: { (dataSources, tableView, changeSet) -> ViewTransition in
-                    //
                     return .animated
             }, configureCell: { (dataSource, tableView, indexPath, item) -> UITableViewCell in
                 
@@ -117,7 +116,6 @@ class MainViewController: UIViewController {
     
     @objc func doLogoutOnward() {
         if UserDefaults.standard.string(forKey: "accessToken") == "empty" {
-            // back to Login
             guard let vc = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() else {
                 return
             }

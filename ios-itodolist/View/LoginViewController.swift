@@ -25,8 +25,6 @@ class ViewController: UIViewController {
         _username.text = "demo11"
         _password.text = "demo11"
         
-        //print(UserDefaults.standard.string(forKey: "accessToken"))
-        
         if UserDefaults.standard.string(forKey: "accessToken") != "empty" {
             guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() else {
                 return
